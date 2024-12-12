@@ -84,20 +84,20 @@ const Footer = () => {
         <div>
           <h3 className="text-xl font-semibold mb-4">Contact Info</h3>
           <p className="text-sm">
-            <strong>Address:</strong> 123 Immigration St, Global City, World
+            <strong>Address:</strong> 123 Immigration St, Gulistan City,Bangladesh
           </p>
           <p className="text-sm">
             <strong>Phone:</strong> +123 456 7890
           </p>
           <p className="text-sm">
-            <strong>Email:</strong> support@visanavigator.com
+            <strong>Email:</strong> support@VisaSphere.com
           </p>
         </div>
       </div>
 
       {/* Footer Bottom */}
       <div className="bg-neutral-focus text-textPrimary py-4 text-center text-sm">
-        <p>&copy; 2024 Visa Navigator. All Rights Reserved.</p>
+        <p>&copy; 2024 VisaSphere. All Rights Reserved.</p>
       </div>
     </footer>
   );
