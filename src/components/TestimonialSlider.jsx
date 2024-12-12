@@ -3,25 +3,27 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-
+import testipb from '../assets/images/testpb.png'
+import testipb2 from '../assets/images/testipb2.png'
+import testipg from '../assets/images/testpg.png'
 const TestimonialSlider = () => {
   const testimonials = [
     {
-      image: "https://via.placeholder.com/100", // Replace with the actual image URL
+      image: testipb, // Replace with the actual image URL
       name: "John Doe",
       position: "Software Engineer",
       quote:
         "Visa Navigator made the process so easy. I got my visa approved in no time!",
     },
     {
-      image: "https://via.placeholder.com/100", // Replace with the actual image URL
+      image: testipb2, // Replace with the actual image URL
       name: "Jane Smith",
       position: "Business Owner",
       quote:
         "Their service is top-notch. Highly recommended for anyone seeking visas.",
     },
     {
-      image: "https://via.placeholder.com/100", // Replace with the actual image URL
+      image: testipg, // Replace with the actual image URL
       name: "Emily Johnson",
       position: "Student",
       quote:
@@ -34,9 +36,9 @@ const TestimonialSlider = () => {
       <div className="container mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-primary">What Our Clients Say</h2>
-          <p className="text-lg text-textSecondary mt-4">
-            Read the experiences of our satisfied customers.
+          <h2 className="text-lg font-semibold pb-1 text-secondary">What Our Clients Say</h2>
+          <p className="text-4xl text-primary mt-4 font-bold">
+            Read the experiences of <br /> our satisfied customers.
           </p>
         </div>
 
@@ -52,18 +54,18 @@ const TestimonialSlider = () => {
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
-              <div className="shadow-lg bg-neutral rounded-lg p-8 text-center w-fit mx-auto">
+              <div className="shadow-lg bg-neutral rounded-lg  p-8 text-center w-fit mx-auto">
                 {/* Client Image */}
                 <div className="mb-4">
                   <img
                     src={testimonial.image}
                     alt={testimonial.name}
-                    className="w-24 h-24 mx-auto rounded-full border-4 border-primary"
+                    className="w-24 h-24 mx-auto rounded-full border-4 border-secondary"
                   />
                 </div>
                 {/* Client Quote */}
-                <p className="text-lg italic text-textSecondary mb-4">
-                  "{testimonial.quote}"
+                <p className="text-2xl italic text-textSecondary mb-4">
+               &ldquo;{testimonial.quote}&ldquo;
                 </p>
                 {/* Client Details */}
                 <h3 className="text-xl font-semibold text-primary">

@@ -2,7 +2,7 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/f
 
 const Footer = () => {
   return (
-    <footer className="bg-primary/10 text-secondaryText">
+    <footer className="bg-gradient-to-b from-primary/10 to-transparent text-textPrimary">
       <div className="container mx-auto py-12 px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* About Section */}
         <div>
@@ -96,7 +96,7 @@ const Footer = () => {
       </div>
 
       {/* Footer Bottom */}
-      <div className="bg-neutral-focus text-neutral-content py-4 text-center text-sm">
+      <div className="bg-neutral-focus text-textPrimary py-4 text-center text-sm">
         <p>&copy; 2024 Visa Navigator. All Rights Reserved.</p>
       </div>
     </footer>
