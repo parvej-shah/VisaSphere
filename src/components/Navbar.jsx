@@ -12,7 +12,7 @@ const Navbar = () => {
     const isActiveLink = 'btn bg-transparent border-none text-secondary font-bold hover:bg-transparent';
     const isNotActiveLink = 'btn bg-transparent border-none text-neutral font-normal hover:bg-transparent hover:scale-110 transition-all duration-300 hover:text-secondary hover:font-bold'
   return (
-    <div className="navbar bg-primary text-neutral fixed top-0 z-10 shadow-navbar">
+    <div className="navbar bg-primary text-neutral shadow-navbar">
       {/* Navbar Start */}
       <div className="navbar-start ">
         {/* Mobile Menu Button */}
@@ -78,7 +78,7 @@ const Navbar = () => {
       {/* Navbar End */}
       <div className="navbar-end px-4 lg:px-8">
         {isloggedIn ? (
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="flex items-center gap-4">
             <div className="dropdown dropdown-end">
               <div
                 tabIndex={0}
