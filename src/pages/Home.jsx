@@ -1,6 +1,7 @@
 import AboutVisaAgency from "../components/AboutVisaAgency";
 import Banner from "../components/Banner";
 import ChooseCountry from "../components/ChooseCountry";
+import TestimonialSlider from "../components/TestimonialSlider";
 import VisaCategories from "../components/VisaCategories";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
         <VisaCategories/>
         <AboutVisaAgency/>
         <ChooseCountry/>
+        <TestimonialSlider/>
     </div>
   )
 }
