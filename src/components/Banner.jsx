@@ -33,7 +33,7 @@ const Banner = () => {
         pagination={{ clickable: true }}
         autoplay={{ delay: 5000, disableOnInteraction: true }}
         loop
-        className="h-[250px] md:h-[500px]"
+        className="h-[300px] md:h-[500px]"
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index} className='relative'>

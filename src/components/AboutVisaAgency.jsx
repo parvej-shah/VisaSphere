@@ -1,17 +1,14 @@
 import { FaCheckCircle, FaBullseye, FaLightbulb } from "react-icons/fa";
-import aboutVisa from "../assets/images/aboutVisa.png";
+import Lottie from "lottie-react";
+import airplaneAnimation from "../assets/images/airplaneAnimation.json";
 const AboutVisaAgency = () => {
   return (
     <section className="py-16 bg-neutral px-3 md:px-0">
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left: Image */}
         <div className="relative">
-          <div className="w-full h-auto rounded-lg overflow-hidden shadow-lg">
-            <img
-              src={aboutVisa}
-              alt="About Visa Agency"
-              className="w-full object-cover"
-            />
+          <div className="w-full h-auto overflow-hidden">
+          <Lottie animationData={airplaneAnimation} />
           </div>
         </div>
 

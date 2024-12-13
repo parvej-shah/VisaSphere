@@ -1,5 +1,6 @@
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { Typewriter } from 'react-simple-typewriter'
 import studentVisa from '../assets/images/studentVisa.png'
 import faimlyVisa from '../assets/images/familyVisa.png'
 import businessVisa from '../assets/images/businessVisa.png'
@@ -35,7 +36,18 @@ const VisaCategories = () => {
         <div className="text-center mb-12">
           <h2 className="text-lg font-semibold text-secondary">Visa Categories</h2>
           <p className="text-4xl font-bold  text-primary mt-4">
-          Outstanding Tourist <br />
+          Outstanding <br className="md:hidden"/>
+            <span className="italic text-secondary"> 
+             <Typewriter
+            words={[' Study', ' Family', ' Business', ' Tourist']}
+            loop={0}
+            cursor
+            cursorStyle='|'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+            </span><br />
           Visa Services.
           </p>
         </div>
@@ -55,7 +67,7 @@ const VisaCategories = () => {
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-primary">
                   {category.title}
-                </h3>
+                </h3 >
                 <p className="text-sm text-textSecondary mt-2">
                   {category.description}
                 </p>

@@ -6,6 +6,7 @@ import flagAus from '../assets/images/flagAus.png'
 import flagger from '../assets/images/flagger.png'
 import flageng from '../assets/images/flageng.png'
 import flagcan from '../assets/images/flagcan.png'
+import { AiOutlineArrowRight } from 'react-icons/ai'
 const ChooseCountry = () => {
   const countries = [
     {
@@ -39,7 +40,7 @@ const ChooseCountry = () => {
   ];
 
   return (
-    <section className="py-16 bg-neutral">
+    <section className="py-16 bg-neutral px-3 md:px-0">
       <div className="container mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -84,6 +85,11 @@ const ChooseCountry = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className='mt-10 flex justify-center items-center'>
+        <button className="btn bg-secondary border-none text-white font-bold px-6 py-3 rounded-lg hover:bg-primary flex items-center gap-2">
+                  View More<AiOutlineArrowRight className="text-lg" />
+                </button>
         </div>
       </div>
     </section>

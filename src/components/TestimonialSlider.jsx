@@ -53,7 +53,7 @@ const TestimonialSlider = () => {
           className="testimonial-slider"
         >
           {testimonials.map((testimonial, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={index} className=' px-3 md:px-0'>
               <div className="shadow-lg bg-neutral rounded-lg  p-8 text-center w-fit mx-auto">
                 {/* Client Image */}
                 <div className="mb-4">
