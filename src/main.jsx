@@ -7,7 +7,7 @@ import Home from "./pages/Home.jsx";
 import RegistrationForm from "./components/user/RegistrationForm.jsx";
 import LoginForm from "./components/user/LoginForm.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
-import AddVisaForm from "./components/forms/AddVisaForm.jsx";
+import AddVisaForm from "./components/visaforms/AddVisaForm.jsx";
 import AuthProvider from "./AuthProvider/AuthProvider.jsx";
 import { ToastContainer} from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';

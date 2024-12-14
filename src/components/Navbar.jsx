@@ -1,10 +1,10 @@
 import { signOut } from "firebase/auth";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { auth } from "../../firebase.init";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
-    const isloggedIn = true;
+    const isloggedIn = false;
     const allNavLink = [
         { to: '/', label: 'Home' },
         { to: '/all-visas', label: 'All Visas' },
@@ -118,12 +118,12 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="flex flex-col lg:flex-row gap-2">
-            <a href="#" className="btn btn-secondary btn-sm">
+            <Link to={'/login'} className="btn btn-secondary btn-sm">
               Login
-            </a>
-            <a href="#" className="btn btn-accent btn-sm">
+            </Link>
+            <Link to={'/registration'} className="btn btn-accent btn-sm">
               Register
-            </a>
+            </Link>
           </div>
         )}
       </div>

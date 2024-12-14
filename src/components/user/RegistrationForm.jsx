@@ -20,15 +20,29 @@ const RegistrationForm = () => {
     const { name, email, photoURL, password } = data;
     console.log({data});
     createUser(email,password)
-    // eslint-disable-next-line no-unused-vars
     .then((userCredential) => {
       // Signed up 
-      /* const user = userCredential.user; */
+      const user = userCredential.user;
+      const lastSignInTime = user.metadata.lastSignInTime;
+      const newUser = {name,email,lastSignInTime};
       toast.success("Registration Successful!");
+      console.log(userCredential);
       updateProfile(auth.currentUser, {
         displayName: name, photoURL: photoURL
       }).then(() => {
         // Profile updated!
+        //console.log(newUser);
+        fetch('http://localhost:5000/users',{
+          method:"POST",
+          headers:{
+            'Content-Type': 'application/json',
+          },
+          body:JSON.stringify(newUser)
+        })
+        .then(res=>res.json())
+        .then(()=>{
+          //console.log(data);
+        })
       }).catch((error) => {
         toast.error("Profile Update Failed: " + error.message);
       });
