@@ -1,43 +1,54 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-/* import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth } from "../firebaseConfig"; */
 import { Fade } from "react-awesome-reveal";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { useAuth } from "../../AuthProvider/AuthProvider";
+import { auth } from "../../../firebase.init";
+import { updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 const RegistrationForm = () => {
+  const {createUser} = useAuth();
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     const { name, email, photoURL, password } = data;
-    console.log(data);
-   /*  try {
-      // Simulate successful registration (use your own registration logic)
-      console.log("User Registered:", { name, email, photoURL, password });
+    console.log({data});
+    createUser(email,password)
+    // eslint-disable-next-line no-unused-vars
+    .then((userCredential) => {
+      // Signed up 
+      /* const user = userCredential.user; */
       toast.success("Registration Successful!");
-      navigate("/"); // Redirect to home page
-    } catch (error) {
+      updateProfile(auth.currentUser, {
+        displayName: name, photoURL: photoURL
+      }).then(() => {
+        // Profile updated!
+      }).catch((error) => {
+        toast.error("Profile Update Failed: " + error.message);
+      });
+      navigate("/");
+    })
+    .catch((error) => {
+      /* const errorCode = error.code; */
       toast.error("Registration Failed: " + error.message);
-    } */
+    });
   };
 
   const handleGoogleLogin = async () => {
-    /* const provider = new GoogleAuthProvider();
+    const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
-      toast.success("Google Login Successful!");
+      toast.success("Login Successful!");
       navigate("/");
     } catch (error) {
       toast.error("Google Login Failed: " + error.message);
-    } */
+    }
   };
 
   return (

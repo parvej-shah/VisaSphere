@@ -9,6 +9,8 @@ import LoginForm from "./components/user/LoginForm.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
 import AddVisaForm from "./components/forms/AddVisaForm.jsx";
 import AuthProvider from "./AuthProvider/AuthProvider.jsx";
+import { ToastContainer} from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +43,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
       <RouterProvider router={router} />
+      <ToastContainer/>
     </AuthProvider>
   </StrictMode>
 );
