@@ -1,4 +1,7 @@
+import { signOut } from "firebase/auth";
 import { NavLink } from "react-router-dom";
+import { auth } from "../../firebase.init";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
     const isloggedIn = true;
@@ -9,6 +12,13 @@ const Navbar = () => {
         { to: '/my-added-visas', label: 'My Added Visas' },
         { to: '/my-applications', label: 'My Applications' },
       ];
+      const handleSignOut = ()=>{
+        signOut(auth).then(() => {
+          toast.success("User Logged Out!")
+        }).catch(() => {
+          toast.error("SignOut Failed!")
+        });
+      }
     const isActiveLink = 'btn bg-transparent border-none text-secondary font-bold hover:bg-transparent';
     const isNotActiveLink = 'btn bg-transparent border-none text-neutral font-normal hover:bg-transparent hover:scale-110 transition-all duration-300 hover:text-secondary hover:font-bold'
   return (
@@ -90,15 +100,18 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 space-y-2 p-2 shadow-lg bg-neutral text-primary rounded-box w-48"
+                className="menu menu-sm dropdown-content mt-3 space-y-2 p-2 shadow-lg bg-neutral text-primary rounded-box w-48 z-10"
               >
                 <li>
                   <a href="#">Name</a>
                 </li>
                 <li>
-                  <a href="#" className="btn bg-secondary text-neutral">
+                  <a href="#">Email</a>
+                </li>
+                <li>
+                  <button onClick={handleSignOut} className="btn bg-primary text-neutral">
                     Logout
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>

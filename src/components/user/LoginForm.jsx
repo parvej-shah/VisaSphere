@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,8 +7,13 @@ import { Fade } from "react-awesome-reveal";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { useAuth } from "../../AuthProvider/AuthProvider";
+import { useState } from "react";
+import { auth } from "../../../firebase.init";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 const LoginForm = () => {
+    const {loginUser} = useAuth();
   const {
     register,
     handleSubmit,
@@ -23,25 +27,28 @@ const LoginForm = () => {
     const { email, password } = data;
     console.log(data);
 
-    try {
-      // Simulate successful login (replace with real logic)
-      console.log("User Logged In:", { email, password });
-      toast.success("Login Successful!");
-      navigate("/"); // Redirect to home page
-    } catch (error) {
-      toast.error("Login Failed: " + error.message);
-    }
+    loginUser(email,password)
+    // eslint-disable-next-line no-unused-vars
+    .then((userCredential) => {
+        // Signed in 
+        // const user = userCredential.user;
+        toast.success("Login Successful!");
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error("Login Failed: " + error.message);
+      });
   };
 
   const handleGoogleLogin = async () => {
-    /* const provider = new GoogleAuthProvider();
+    const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
       toast.success("Google Login Successful!");
       navigate("/");
     } catch (error) {
       toast.error("Google Login Failed: " + error.message);
-    } */
+    }
   };
 
   return (
