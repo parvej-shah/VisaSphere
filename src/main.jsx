@@ -7,6 +7,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from './pages/Home.jsx';
+import RegistrationForm from './components/user/RegistrationForm.jsx';
+import LoginForm from './components/user/LoginForm.jsx';
+import ErrorPage from './components/ErrorPage.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -15,10 +18,21 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home/>
-      }
+      },
+      {
+        path:'/registration',
+        element:<RegistrationForm/>
+      },
+      {
+        path:'/login',
+        element:<LoginForm/>
+      },
     ]
   },
-
+  {
+    path:'/*',
+    element:<ErrorPage/>
+  }
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>

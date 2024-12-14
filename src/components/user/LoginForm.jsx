@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,26 +7,30 @@ import { auth } from "../firebaseConfig"; */
 import { Fade } from "react-awesome-reveal";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-const RegistrationForm = () => {
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+
+const LoginForm = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
+
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    const { name, email, photoURL, password } = data;
+    const { email, password } = data;
     console.log(data);
-   /*  try {
-      // Simulate successful registration (use your own registration logic)
-      console.log("User Registered:", { name, email, photoURL, password });
-      toast.success("Registration Successful!");
+
+    try {
+      // Simulate successful login (replace with real logic)
+      console.log("User Logged In:", { email, password });
+      toast.success("Login Successful!");
       navigate("/"); // Redirect to home page
     } catch (error) {
-      toast.error("Registration Failed: " + error.message);
-    } */
+      toast.error("Login Failed: " + error.message);
+    }
   };
 
   const handleGoogleLogin = async () => {
@@ -44,21 +48,9 @@ const RegistrationForm = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-100 py-20">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <Fade direction="down" triggerOnce>
-          <h2 className="text-2xl font-bold text-center mb-6">Register</h2>
+          <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
         </Fade>
         <form onSubmit={handleSubmit(onSubmit)}>
-          {/* Name Field */}
-          <div className="mb-4">
-            <label className="block text-gray-700 mb-2">Name</label>
-            <input
-              type="text"
-              placeholder="Enter your name"
-              className="input input-bordered w-full"
-              {...register("name", { required: "Name is required" })}
-            />
-            {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
-          </div>
-
           {/* Email Field */}
           <div className="mb-4">
             <label className="block text-gray-700 mb-2">Email</label>
@@ -77,42 +69,31 @@ const RegistrationForm = () => {
             {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
           </div>
 
-          {/* Photo URL Field */}
-          <div className="mb-4">
-            <label className="block text-gray-700 mb-2">Photo URL</label>
-            <input
-              type="url"
-              placeholder="Enter your photo URL"
-              className="input input-bordered w-full"
-              {...register("photoURL", { required: "Photo URL is required" })}
-            />
-            {errors.photoURL && <p className="text-red-500 text-sm">{errors.photoURL.message}</p>}
-          </div>
-
           {/* Password Field */}
-          <div className="mb-4">
+          <div className="mb-4 relative">
             <label className="block text-gray-700 mb-2">Password</label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
-              className="input input-bordered w-full"
+              className="input input-bordered w-full pr-10"
               {...register("password", {
                 required: "Password is required",
-                validate: {
-                  hasUpperCase: (value) => /[A-Z]/.test(value) || "Must include an uppercase letter",
-                  hasLowerCase: (value) => /[a-z]/.test(value) || "Must include a lowercase letter",
-                  minLength: (value) => value.length >= 6 || "Must be at least 6 characters",
-                },
               })}
             />
+            <span
+              className="absolute right-3 top-12 cursor-pointer text-gray-500"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <AiOutlineEyeInvisible size={20} /> : <AiOutlineEye size={20} />}
+            </span>
             {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
           </div>
 
-          {/* Register Button */}
+          {/* Login Button */}
           <button
             type="submit"
             className="btn bg-primary hover:bg-primary/80 text-white w-full shadow-lg hover:shadow-xl">
-            Register
+            Login
           </button>
         </form>
 
@@ -123,15 +104,15 @@ const RegistrationForm = () => {
         <button
           onClick={handleGoogleLogin}
           className="btn btn-outline w-full flex items-center gap-2 justify-center shadow-lg hover:shadow-xl">
-          <FcGoogle className="text-3xl"/>
+          <FcGoogle className="text-3xl" />
           Sign in with Google
         </button>
 
-        {/* Link to Login */}
+        {/* Link to Register */}
         <p className="text-center mt-4 text-gray-600">
-          Already have an account?          
-          <Link to={"/login"} className="text-blue-500 hover:underline">
-            Login here
+          Don&apos;t have an account?
+          <Link to={"/register"} className="text-blue-500 hover:underline ml-1">
+            Register here
           </Link>
         </p>
       </div>
@@ -139,4 +120,4 @@ const RegistrationForm = () => {
   );
 };
 
-export default RegistrationForm;
+export default LoginForm;
