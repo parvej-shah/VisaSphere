@@ -1,34 +1,44 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
+import { useAuth } from "../../AuthProvider/AuthProvider";
 
 const AddVisaForm = () => {
-  const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
-
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const {user} = useAuth();
   const onSubmit = async (data) => {
     // Simulating API call to store data
-    try {
-      console.log("Visa Data Submitted:", data);
-
-      // Show success message
-      Swal.fire({
-        title: "Success!",
-        text: "Visa added successfully!",
-        icon: "success",
-        confirmButtonText: "OK",
-      });
-
-      // Reset the form
-      reset();
-    } catch (error) {
-      Swal.fire({
-        title: "Error!",
-        text: "Something went wrong!",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    }
+    console.log("Visa Data Submitted:", data);
+    console.log('user',user);
+    const newVisa = {...data,addedBy:user.email};
+    fetch('http://localhost:5000/visas/addvisa',{
+      method:"POST",
+      headers:{
+        'Content-Type': 'application/json',
+      },
+      body:JSON.stringify(newVisa)
+    })
+    .then(res=>res.json())
+    .then((datas)=>{
+      console.log(datas);
+      if(datas.acknowledged){
+        Swal.fire({
+          title: "Success!",
+          text: "Visa added successfully!",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+      }
+      else{
+        Swal.fire({
+          title: "Error!",
+          text: "Something went wrong!",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      }
+    })
+    
   };
 
   return (
@@ -69,7 +79,8 @@ const AddVisaForm = () => {
             <option value="">Select Visa Type</option>
             <option value="Tourist visa">Tourist Visa</option>
             <option value="Student visa">Student Visa</option>
-            <option value="Official visa">Official Visa</option>
+            <option value="Business Visa">Business Visa</option>
+            <option value="Family Visa">Family Visa</option>
           </select>
           {errors.visaType && <p className="text-red-500 text-sm">{errors.visaType.message}</p>}
         </div>

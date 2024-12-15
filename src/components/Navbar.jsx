@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase.init";
 import { toast } from "react-toastify";
 
@@ -12,6 +12,7 @@ const Navbar = () => {
         { to: '/my-added-visas', label: 'My Added Visas' },
         { to: '/my-applications', label: 'My Applications' },
       ];
+      const navigate = useNavigate();
       const handleSignOut = ()=>{
         signOut(auth).then(() => {
           toast.success("User Logged Out!")
@@ -118,12 +119,12 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="flex flex-col lg:flex-row gap-2">
-            <Link to={'/login'} className="btn btn-secondary btn-sm">
+            <button onClick={()=>navigate('/login')} className="btn btn-secondary btn-sm">
               Login
-            </Link>
-            <Link to={'/registration'} className="btn btn-accent btn-sm">
+            </button>
+            <button onClick={()=>navigate('/registration')} className="btn btn-accent btn-sm">
               Register
-            </Link>
+            </button>
           </div>
         )}
       </div>
