@@ -9,41 +9,50 @@ const VisaDetails = () => {
   const navigate = useNavigate();
 
   const { user } = useAuth();
-  const currentDate = new Date().toISOString().split("T")[0]; // Format current date
+  const currentDate = new Date().toISOString().split("T")[0];
   const loadedVisa = useLoaderData();
 
   useEffect(() => {
     setVisa(loadedVisa);
   }, [loadedVisa]);
-
   const handleApply = (e) => {
     e.preventDefault();
     const applicationData = {
-      email: user?.email,
+      visaId: visa?._id,
+      countryName: visa?.countryName,
+      countryImage: visa?.countryImage,
+      visaType: visa?.visaType,
+      processingTime: visa?.processingTime,
+      fee: visa?.fee,
+      validity: visa?.validity,
+      applicationMethod: visa?.applicationMethod,
+      appliedDate: currentDate,
       firstName: e.target.firstName.value,
       lastName: e.target.lastName.value,
-      appliedDate: currentDate,
-      fee: visa?.fee,
-      visaId: visa?._id,
+      applicantsEmail: user?.email,
     };
-
     // Submit application data to the backend
     fetch("http://localhost:5000/applications", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(applicationData),
     })
-      .then((response) => {
-        if (response.ok) {
-          Swal.fire("Success!", "Your visa application has been submitted!", "success");
-          navigate("/");
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          Swal.fire(
+            "Success!",
+            "Your visa application has been submitted!",
+            "success"
+          );
+          navigate("/my-applications");
         } else {
-          throw new Error("Failed to submit application");
+          Swal.fire(
+            "Error!",
+            "Something went wrong. Please try again later.",
+            "error"
+          );
         }
-      })
-      .catch((error) => {
-        Swal.fire("Error!", "Something went wrong. Please try again later.", "error");
-        console.error(error);
       });
 
     setIsModalOpen(false);
@@ -59,7 +68,8 @@ const VisaDetails = () => {
             className="w-full h-60 object-cover rounded-md mb-6"
           />
           <h2 className="text-3xl font-bold text-primary mb-4">
-            {visa.countryName} <span className="text-xl">- {visa.visaType}</span> 
+            {visa.countryName}{" "}
+            <span className="text-xl">- {visa.visaType}</span>
           </h2>
           <p className="text-textPrimary mb-2">
             <strong>Processing Time:</strong> {visa.processingTime}
