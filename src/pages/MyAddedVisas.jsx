@@ -37,11 +37,12 @@ const MyAddedVisas = () => {
           method: "DELETE",
         })
           .then((res) => res.json())
-          .then(() => {
-            Swal.fire("Deleted!", "Your visa has been deleted.", "success");
-            setVisas(visas.filter((visa) => visa._id !== id));
+          .then((data) => {
+            if(data.deletedCount>0){
+                Swal.fire("Deleted!", "Your visa has been deleted.", "success");
+                setVisas(visas.filter((visa) => visa._id !== id));
+            }
           })
-          .catch((err) => console.error(err));
       }
     });
   };
