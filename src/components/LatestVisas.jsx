@@ -72,13 +72,9 @@ const LatestVisas = () => {
     .then(res=>res.json())
     .then(data=>setLatestVisas(data))
   },[])
-  const handleSeeDetails = (id) => {
-    navigate(`/visa-details/${id}`);
-  };
 
-  const handleSeeAllVisas = () => {
-    navigate("/all-visas");
-  };
+
+
 
   return (
     <section className="bg-accent py-10">
@@ -92,7 +88,7 @@ const LatestVisas = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {latestVisas.map((visa) => (
             <div
-              key={visa.id}
+              key={visa._id}
               className="bg-neutral group rounded-lg shadow-lg p-4 hover:shadow-xl transition-all hover:scale-105 duration-300"
             >
               {/* Country Image */}
@@ -126,7 +122,7 @@ const LatestVisas = () => {
 
               {/* See Details Button */}
               <button
-                onClick={() => handleSeeDetails(visa.id)}
+                onClick={() => navigate(`/visa-details/${visa._id}`)}
                 className="mt-4 bg-secondary text-neutral px-4 py-2 rounded-md hover:bg-primary transition-all"
               >
                 See Details
@@ -138,7 +134,7 @@ const LatestVisas = () => {
         {/* See All Visas Button */}
         <div className="text-center mt-8">
           <button
-            onClick={handleSeeAllVisas}
+            onClick={()=> navigate("/all-visas")}
             className="bg-primary text-neutral px-6 py-3 rounded-md hover:bg-secondary transition-all"
           >
             See All Visas

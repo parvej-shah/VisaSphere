@@ -13,6 +13,7 @@ import AuthProvider from "./AuthProvider/AuthProvider.jsx";
 import { ToastContainer} from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import AllVisas from "./pages/AllVisas.jsx";
+import VisaDetails from "./pages/VisaDetails.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
       {
         path: "/all-visas",
         element: <AllVisas/>,
+      },
+      {
+        path: "/visa-details/:id",
+        element: <VisaDetails/>,
+        loader:({params})=>fetch(`http://localhost:5000/all-visas/${params.id}`)
       },
       {
         path: "/registration",
