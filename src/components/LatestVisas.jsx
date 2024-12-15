@@ -93,18 +93,18 @@ const LatestVisas = () => {
           {latestVisas.map((visa) => (
             <div
               key={visa.id}
-              className="bg-neutral rounded-lg shadow-lg p-4 hover:shadow-xl transition-shadow duration-300"
+              className="bg-neutral group rounded-lg shadow-lg p-4 hover:shadow-xl transition-all hover:scale-105 duration-300"
             >
               {/* Country Image */}
               <img
                 src={visa.countryImage}
-                alt={visa.country}
-                className="w-full h-40 object-cover rounded-md"
+                alt={visa.countryName}
+                className="w-full h-40 object-cover rounded-md group-hover:scale-105 duration-300 transition-all"
               />
 
               {/* Visa Information */}
               <h3 className="text-lg font-bold text-textPrimary mt-4">
-                {visa.country}
+                {visa.countryName}
               </h3>
               <p className="text-sm text-textSecondary">
                 Visa Type: <span className="text-textPrimary">{visa.visaType}</span>

@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
-import { useAuth } from "../../AuthProvider/AuthProvider";
+import { useAuth } from "../AuthProvider/AuthProvider";
 
 const AddVisaForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();

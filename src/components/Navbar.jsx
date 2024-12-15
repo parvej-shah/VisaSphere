@@ -1,5 +1,5 @@
 import { signOut } from "firebase/auth";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase.init";
 import { toast } from "react-toastify";
 
