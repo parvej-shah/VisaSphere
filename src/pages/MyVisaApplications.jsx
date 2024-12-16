@@ -12,7 +12,6 @@ const MyVisaApplications = () => {
       .then((data) => setApplications(data))
       .catch((err) => console.error(err));
     }, [user]);
-    console.log(applications,user?.email);
 
   
   const handleCancel = (id) => {
@@ -31,7 +30,6 @@ const MyVisaApplications = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if(data.deletedCount>0){
                 Swal.fire("Cancelled!", "Your application has been cancelled.", "success");
                 setApplications(applications.filter((app) => app._id !== id));
