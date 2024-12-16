@@ -74,7 +74,7 @@ const RegistrationForm = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* Name Field */}
           <div className="mb-4">
-            <label className="block text-gray-700 mb-2">Name</label>
+            <label className="block text-textPrimary mb-2">Name</label>
             <input
               type="text"
               placeholder="Enter your name"
@@ -86,7 +86,7 @@ const RegistrationForm = () => {
 
           {/* Email Field */}
           <div className="mb-4">
-            <label className="block text-gray-700 mb-2">Email</label>
+            <label className="block text-textPrimary mb-2">Email</label>
             <input
               type="email"
               placeholder="Enter your email"
@@ -104,7 +104,7 @@ const RegistrationForm = () => {
 
           {/* Photo URL Field */}
           <div className="mb-4">
-            <label className="block text-gray-700 mb-2">Photo URL</label>
+            <label className="block text-textPrimary mb-2">Photo URL</label>
             <input
               type="url"
               placeholder="Enter your photo URL"
@@ -116,7 +116,7 @@ const RegistrationForm = () => {
 
           {/* Password Field */}
           <div className="mb-4">
-            <label className="block text-gray-700 mb-2">Password</label>
+            <label className="block text-textPrimary mb-2">Password</label>
             <input
               type="password"
               placeholder="Enter your password"

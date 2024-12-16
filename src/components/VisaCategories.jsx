@@ -35,7 +35,7 @@ const VisaCategories = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-lg font-semibold text-secondary">Visa Categories</h2>
-          <p className="text-4xl font-bold  text-primary mt-4">
+          <p className="text-4xl font-bold  text-textPrimary mt-4">
           Outstanding <br className="md:hidden"/>
             <span className="italic text-secondary"> 
              <Typewriter
@@ -57,7 +57,7 @@ const VisaCategories = () => {
           {categories.map((category, index) => (
             <div
               key={index}
-              className="card shadow-xl border rounded-lg overflow-hidden bg-white"
+              className="card shadow-xl border rounded-lg overflow-hidden bg-accent"
             >
               <img
                 src={category.image}
@@ -65,7 +65,7 @@ const VisaCategories = () => {
                 className="w-full h-56 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-primary">
+                <h3 className="text-xl font-semibold text-textPrimaryText">
                   {category.title}
                 </h3 >
                 <p className="text-sm text-textSecondary mt-2">

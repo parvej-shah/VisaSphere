@@ -77,10 +77,10 @@ const LatestVisas = () => {
 
 
   return (
-    <section className="bg-accent py-10">
+    <section className="bg-neutral py-10">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <h2 className="text-3xl font-semibold text-primary text-center mb-8">
+        <h2 className="text-3xl font-semibold text-textPrimary text-center mb-8">
           Latest Visas
         </h2>
 
@@ -89,7 +89,7 @@ const LatestVisas = () => {
           {latestVisas.map((visa) => (
             <div
               key={visa._id}
-              className="bg-neutral group rounded-lg shadow-lg p-4 hover:shadow-xl transition-all hover:scale-105 duration-300"
+              className="bg-accent group rounded-lg shadow-lg p-4 hover:shadow-xl transition-all hover:scale-105 duration-300"
             >
               {/* Country Image */}
               <img
@@ -123,7 +123,7 @@ const LatestVisas = () => {
               {/* See Details Button */}
               <button
                 onClick={() => navigate(`/visa-details/${visa._id}`)}
-                className="mt-4 bg-secondary text-neutral px-4 py-2 rounded-md hover:bg-primary transition-all"
+                className="mt-4 bg-secondary text-white px-4 py-2 rounded-md hover:bg-primary transition-all"
               >
                 See Details
               </button>
@@ -135,7 +135,7 @@ const LatestVisas = () => {
         <div className="text-center mt-8">
           <button
             onClick={()=> navigate("/all-visas")}
-            className="bg-primary text-neutral px-6 py-3 rounded-md hover:bg-secondary transition-all"
+            className="bg-primary text-white px-6 py-3 rounded-md hover:bg-secondary transition-all"
           >
             See All Visas
           </button>

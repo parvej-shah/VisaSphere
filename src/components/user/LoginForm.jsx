@@ -60,7 +60,7 @@ const LoginForm = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* Email Field */}
           <div className="mb-4">
-            <label className="block text-gray-700 mb-2">Email</label>
+            <label className="block text-textPrimary mb-2">Email</label>
             <input
               type="email"
               placeholder="Enter your email"
@@ -78,7 +78,7 @@ const LoginForm = () => {
 
           {/* Password Field */}
           <div className="mb-4 relative">
-            <label className="block text-gray-700 mb-2">Password</label>
+            <label className="block text-textPrimary mb-2">Password</label>
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"

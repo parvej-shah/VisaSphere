@@ -37,7 +37,7 @@ const TestimonialSlider = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-lg font-semibold pb-1 text-secondary">What Our Clients Say</h2>
-          <p className="text-4xl text-primary mt-4 font-bold">
+          <p className="text-4xl text-textPrimary mt-4 font-bold">
             Read the experiences of <br /> our satisfied customers.
           </p>
         </div>
@@ -54,7 +54,7 @@ const TestimonialSlider = () => {
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index} className=' px-3 md:px-0'>
-              <div className="shadow-lg bg-neutral rounded-lg  p-8 text-center w-fit mx-auto">
+              <div className="shadow-lg bg-accent rounded-lg  p-8 text-center w-fit mx-auto">
                 {/* Client Image */}
                 <div className="mb-4">
                   <img
@@ -68,7 +68,7 @@ const TestimonialSlider = () => {
                &ldquo;{testimonial.quote}&ldquo;
                 </p>
                 {/* Client Details */}
-                <h3 className="text-xl font-semibold text-primary">
+                <h3 className="text-xl font-semibold text-textPrimary">
                   {testimonial.name}
                 </h3>
                 <p className="text-sm text-textSecondary">{testimonial.position}</p>

@@ -47,7 +47,7 @@ const ChooseCountry = () => {
           <h2 className="text-xl font-semibold text-secondary">
           Choose Country
           </h2>
-          <p className="text-4xl font-bold text-primary mt-4">
+          <p className="text-4xl font-bold text-textPrimary mt-4">
           Immigration and citizenship <br />
           Choose your country!
           </p>
@@ -78,7 +78,7 @@ const ChooseCountry = () => {
 
               {/* Country Details */}
               <div className="p-6 text-center">
-                <h3 className="text-2xl font-semibold text-primary">
+                <h3 className="text-2xl font-semibold text-textPrimary">
                   {country.country_name}
                 </h3>
                 <p className="text-textSecondary mt-4">{country.description}</p>

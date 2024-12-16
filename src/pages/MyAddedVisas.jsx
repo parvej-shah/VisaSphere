@@ -91,9 +91,9 @@ const MyAddedVisas = () => {
   };
 
   return (
-    <section className="min-h-screen py-10 bg-gray-100">
+    <section className="min-h-screen py-10 bg-accent">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-primary mb-8">
+        <h2 className="text-3xl font-bold text-center text-textPrimary mb-8">
           My Added Visas
         </h2>
 
@@ -104,7 +104,7 @@ const MyAddedVisas = () => {
             {visas.map((visa) => (
               <div
                 key={visa._id}
-                className="bg-white rounded-lg shadow-md overflow-hidden"
+                className="bg-neutral text-textPrimary rounded-lg shadow-md overflow-hidden"
               >
                 <img
                   src={visa.countryImage}
@@ -154,10 +154,10 @@ const MyAddedVisas = () => {
           onRequestClose={closeModal}
           ariaHideApp={false}
           contentLabel="Update Visa Details"
-          className="bg-white p-3 rounded-lg shadow-lg w-full max-w-4xl mx-auto outline-none"
+          className="bg-accent p-3 rounded-lg shadow-lg w-full max-w-4xl mx-auto outline-none"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
         >
-          <h3 className="text-2xl font-bold mb-2 text-primary">
+          <h3 className="text-2xl font-bold mb-2 text-textPrimary">
             Update Visa Details
           </h3>
 

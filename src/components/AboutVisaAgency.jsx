@@ -17,7 +17,7 @@ const AboutVisaAgency = () => {
           <h2 className="text-xl mb-4 font-semibold text-secondary leading-tight">
             About VisaSphere
           </h2>
-          <h2 className="text-4xl font-bold text-primary leading-tight">
+          <h2 className="text-4xl font-bold text-textPrimary leading-tight">
           Welcome to immigration Advisory services
           </h2>
           <p className="text-lg text-textSecondary mt-6">
@@ -32,7 +32,7 @@ const AboutVisaAgency = () => {
               <div className="flex gap-6 items-start">
                 <FaBullseye className="text-secondary text-4xl w-[30%]" />
                 <div>
-                  <h3 className="text-2xl font-semibold text-primary">
+                  <h3 className="text-2xl font-semibold text-textPrimary">
                     Our Mission
                   </h3>
                   <p className="text-textSecondary mt-4">
@@ -47,7 +47,7 @@ const AboutVisaAgency = () => {
               <div className="flex gap-6 items-start">
                 <FaLightbulb className="text-secondary text-4xl w-[30%]" />
                 <div>
-                  <h3 className="text-2xl font-semibold text-primary">
+                  <h3 className="text-2xl font-semibold text-textPrimary">
                     Our Vision
                   </h3>
                   <p className="text-textSecondary mt-4">
@@ -63,25 +63,25 @@ const AboutVisaAgency = () => {
             {/* Highlighted Features */}
             <ul className="space-y-4">
               <li className="flex items-center gap-4">
-                <FaCheckCircle className="text-primary text-2xl" />
+                <FaCheckCircle className="text-textPrimary text-2xl" />
                 <span className="text-textPrimary font-medium">
                   Professional Visa Consultants
                 </span>
               </li>
               <li className="flex items-center gap-4">
-                <FaCheckCircle className="text-primary text-2xl" />
+                <FaCheckCircle className="text-textPrimary text-2xl" />
                 <span className="text-textPrimary font-medium">
                   Hassle-Free Application Processing
                 </span>
               </li>
               <li className="flex items-center gap-4">
-                <FaCheckCircle className="text-primary text-2xl" />
+                <FaCheckCircle className="text-textPrimary text-2xl" />
                 <span className="text-textPrimary font-medium">
                   Affordable Service Packages
                 </span>
               </li>
               <li className="flex items-center gap-4">
-                <FaCheckCircle className="text-primary text-2xl" />
+                <FaCheckCircle className="text-textPrimary text-2xl" />
                 <span className="text-textPrimary font-medium">
                   24/7 Customer Support
                 </span>

@@ -63,7 +63,7 @@ const VisaDetails = () => {
             alt={visa.countryName}
             className="w-full h-60 object-cover rounded-md mb-6"
           />
-          <h2 className="text-3xl font-bold text-primary mb-4">
+          <h2 className="text-3xl font-bold text-textPrimary mb-4">
             {visa.countryName}{" "}
             <span className="text-xl">- {visa.visaType}</span>
           </h2>
@@ -95,7 +95,7 @@ const VisaDetails = () => {
           {/* Apply for Visa Button */}
           <button
             onClick={() => setIsModalOpen(true)}
-            className="mt-6 bg-secondary text-neutral px-6 py-3 rounded-md hover:bg-primary transition-all"
+            className="mt-6 bg-secondary text-white px-6 py-3 rounded-md hover:bg-primary transition-all"
           >
             Apply for the Visa
           </button>
@@ -104,8 +104,8 @@ const VisaDetails = () => {
         {/* Modal */}
         {isModalOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-              <h3 className="text-2xl font-semibold text-primary mb-4">
+            <div className="bg-accent p-6 rounded-lg shadow-lg w-full max-w-md">
+              <h3 className="text-2xl font-semibold text-textPrimary mb-4">
                 Apply for {visa.countryName} Visa
               </h3>
               <form onSubmit={handleApply}>
@@ -164,7 +164,7 @@ const VisaDetails = () => {
                   </button>
                   <button
                     type="submit"
-                    className="bg-primary text-neutral px-4 py-2 rounded"
+                    className="bg-primary text-white px-4 py-2 rounded"
                   >
                     Apply
                   </button>

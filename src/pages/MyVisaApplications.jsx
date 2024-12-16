@@ -54,7 +54,7 @@ const MyVisaApplications = () => {
   return (
     <section className="min-h-screen py-10 bg-accent">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-primary mb-8">
+        <h2 className="text-3xl font-bold text-center text-textPrimary mb-8">
           My Visa Applications
         </h2>
         <div className="flex items-center justify-center mb-4">
@@ -70,7 +70,7 @@ const MyVisaApplications = () => {
               </div>
             </div>
             <div >
-              <button type="submit" className="btn join-item bg-primary hover:bg-primary/90 text-neutral">Search</button>
+              <button type="submit" className="btn join-item bg-primary hover:bg-primary/90 text-white">Search</button>
             </div>
           </div>
           </form>

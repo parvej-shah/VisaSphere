@@ -7,7 +7,7 @@ const ErrorPage = () => {
       <Fade direction="up" triggerOnce>
         <div className="text-center">
           {/* Error Code */}
-          <h1 className="text-9xl font-extrabold text-primary drop-shadow-lg mb-4">404</h1>
+          <h1 className="text-9xl font-extrabold text-textPrimary drop-shadow-lg mb-4">404</h1>
           
           {/* Error Message */}
           <p className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6">

@@ -42,12 +42,12 @@ const AddVisaForm = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-8 bg-white rounded-lg shadow-lg my-10">
-      <h2 className="text-2xl font-bold text-primary text-center mb-6">Add Visa</h2>
+    <div className="max-w-3xl mx-auto p-8 bg-accent rounded-lg shadow-lg my-10">
+      <h2 className="text-2xl font-bold text-textPrimary text-center mb-6">Add Visa</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* Country Image */}
         <div>
-          <label className="block text-gray-700 mb-2">Country Image URL</label>
+          <label className="block text-textPrimary mb-2">Country Image URL</label>
           <input
             type="url"
             placeholder="Image link from imgbb"
@@ -59,7 +59,7 @@ const AddVisaForm = () => {
 
         {/* Country Name */}
         <div>
-          <label className="block text-gray-700 mb-2">Country Name</label>
+          <label className="block text-textPrimary mb-2">Country Name</label>
           <input
             type="text"
             placeholder="Enter country name"
@@ -71,7 +71,7 @@ const AddVisaForm = () => {
 
         {/* Visa Type */}
         <div>
-          <label className="block text-gray-700 mb-2">Visa Type</label>
+          <label className="block text-textPrimary mb-2">Visa Type</label>
           <select
             className="input input-bordered w-full"
             {...register("visaType", { required: "Visa type is required" })}
@@ -87,7 +87,7 @@ const AddVisaForm = () => {
 
         {/* Processing Time */}
         <div>
-          <label className="block text-gray-700 mb-2">Processing Time</label>
+          <label className="block text-textPrimary mb-2">Processing Time</label>
           <input
             type="text"
             placeholder="e.g., 7-14 days"
@@ -99,7 +99,7 @@ const AddVisaForm = () => {
 
         {/* Required Documents */}
         <div>
-          <label className="block text-gray-700 mb-2">Required Documents</label>
+          <label className="block text-textPrimary mb-2">Required Documents</label>
           <div className="space-y-2">
             <label className="flex items-center space-x-2">
               <input type="checkbox" value="Valid passport" {...register("documents")} />
@@ -118,7 +118,7 @@ const AddVisaForm = () => {
 
         {/* Description */}
         <div>
-          <label className="block text-gray-700 mb-2">Description</label>
+          <label className="block text-textPrimary mb-2">Description</label>
           <textarea
             rows="3"
             placeholder="Describe the visa"
@@ -130,7 +130,7 @@ const AddVisaForm = () => {
 
         {/* Age Restriction */}
         <div>
-          <label className="block text-gray-700 mb-2">Age Restriction</label>
+          <label className="block text-textPrimary mb-2">Age Restriction</label>
           <input
             type="number"
             placeholder="Minimum age (if any)"
@@ -141,7 +141,7 @@ const AddVisaForm = () => {
 
         {/* Fee */}
         <div>
-          <label className="block text-gray-700 mb-2">Fee</label>
+          <label className="block text-textPrimary mb-2">Fee</label>
           <input
             type="number"
             placeholder="Enter visa fee"
@@ -153,7 +153,7 @@ const AddVisaForm = () => {
 
         {/* Validity */}
         <div>
-          <label className="block text-gray-700 mb-2">Validity</label>
+          <label className="block text-textPrimary mb-2">Validity</label>
           <input
             type="text"
             placeholder="e.g., 1 year, 6 months"
@@ -164,7 +164,7 @@ const AddVisaForm = () => {
 
         {/* Application Method */}
         <div>
-          <label className="block text-gray-700 mb-2">Application Method</label>
+          <label className="block text-textPrimary mb-2">Application Method</label>
           <input
             type="text"
             placeholder="e.g., Online, In-person"

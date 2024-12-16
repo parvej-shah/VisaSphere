@@ -3,8 +3,35 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Light Mode Colors */
+  --primary: 0, 33, 71; /* Dark Navy Blue */
+  --secondary: 230, 57, 70; /* Vibrant Red */
+  --accent: 244, 244, 244; /* Light Gray */
+  --neutral: 255, 255, 255; /* White */
+  --textPrimary: 52, 58, 64; /* Dark text */
+  --textSecondary: 108, 117, 125; /* Muted text */
+  --error: 220, 53, 69; /* Error Red */
+  --success: 40, 167, 69; /* Success Green */
+  --info: 23, 162, 184; /* Cyan Info */
+}
+
+[data-theme='dark'] {
+  /* Dark Mode Colors */
+  --primary: 10, 25, 47; /* Deep Navy Blue for dark background */
+  --secondary: 179, 44, 53; /* Slightly darker Red */
+  --accent: 33, 37, 41; /* Very Dark Gray for backgrounds */
+  --neutral: 27, 34, 43; /* Near Black for main background */
+  --textPrimary: 235, 235, 235; /* Light Gray for text */
+  --textSecondary: 150, 150, 150; /* Muted Light Gray */
+  --error: 255, 77, 77; /* Bright Red for errors */
+  --success: 82, 196, 82; /* Light Green for success */
+  --info: 67, 182, 194; /* Brighter Cyan for highlights */
+}
+
 body{
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
+  transition:all 0.4 ease-in;
 }
