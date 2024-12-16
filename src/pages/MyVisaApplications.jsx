@@ -10,7 +10,6 @@ const MyVisaApplications = () => {
     fetch(`http://localhost:5000/applications/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setApplications(data))
-      .catch((err) => console.error(err));
     }, [user]);
 
   
