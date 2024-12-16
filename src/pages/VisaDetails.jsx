@@ -1,20 +1,16 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthProvider/AuthProvider";
-import Swal from "sweetalert2"; // Import SweetAlert
+import Swal from "sweetalert2"; 
 
 const VisaDetails = () => {
-  const [visa, setVisa] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
   const { user } = useAuth();
   const currentDate = new Date().toISOString().split("T")[0];
-  const loadedVisa = useLoaderData();
-
-  useEffect(() => {
-    setVisa(loadedVisa);
-  }, [loadedVisa]);
+  const visa = useLoaderData();
+  console.log(visa)
   const handleApply = (e) => {
     e.preventDefault();
     const applicationData = {
@@ -63,7 +59,7 @@ const VisaDetails = () => {
         {/* Visa Details */}
         <div className="bg-neutral rounded-lg shadow-lg p-6 mx-auto max-w-4xl">
           <img
-            src={visa.countryImage}
+            src={visa?.countryImage}
             alt={visa.countryName}
             className="w-full h-60 object-cover rounded-md mb-6"
           />

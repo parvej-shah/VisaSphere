@@ -1,20 +1,15 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../AuthProvider/AuthProvider";
-import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import Modal from "react-modal"; // Import React Modal
+import Modal from "react-modal";
 
 const MyAddedVisas = () => {
-  const [visas, setVisas] = useState([]); // Store user's visa data
-  const [selectedVisa, setSelectedVisa] = useState(null); // For modal updates
+  const [visas, setVisas] = useState([]); 
+  const [selectedVisa, setSelectedVisa] = useState(null); 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { user } = useAuth();
-  const navigate = useNavigate();
-
   const { register, handleSubmit, reset } = useForm();
-
-  // Fetch visas added by the logged-in user
   useEffect(() => {
     fetch(`http://localhost:5000/visas/${user?.email}`)
       .then((res) => res.json())
@@ -78,18 +73,19 @@ const MyAddedVisas = () => {
           body: JSON.stringify(updatedData),
         })
           .then((res) => res.json())
-          .then(() => {
-            Swal.fire("Updated!", "Visa details have been updated.", "success");
-            setIsModalOpen(false);
-            setVisas(
-              visas.map((visa) =>
-                visa._id === selectedVisa._id
-                  ? { ...visa, ...updatedData }
-                  : visa
-              )
-            );
+          .then((data) => {
+            if(data.acknowledged){
+              Swal.fire("Updated!", "Visa details have been updated.", "success");
+              setIsModalOpen(false);
+              setVisas(
+                visas.map((visa) =>
+                  visa._id === selectedVisa._id
+                    ? { ...visa, ...updatedData }
+                    : visa
+                )
+              );
+            }
           })
-          .catch((err) => console.error(err));
       }
     });
   };
@@ -235,7 +231,7 @@ const MyAddedVisas = () => {
               <div className="flex flex-wrap gap-4">
                 <label className="flex items-center">
                   <input
-                    {...register("requiredDocuments")}
+                    {...register("documents")}
                     type="checkbox"
                     value="Valid passport"
                     className="mr-2"
@@ -244,7 +240,7 @@ const MyAddedVisas = () => {
                 </label>
                 <label className="flex items-center">
                   <input
-                    {...register("requiredDocuments")}
+                    {...register("documents")}
                     type="checkbox"
                     value="Visa application form"
                     className="mr-2"
@@ -253,7 +249,7 @@ const MyAddedVisas = () => {
                 </label>
                 <label className="flex items-center">
                   <input
-                    {...register("requiredDocuments")}
+                    {...register("documents")}
                     type="checkbox"
                     value="Recent passport-sized photograph"
                     className="mr-2"

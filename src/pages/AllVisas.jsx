@@ -27,7 +27,7 @@ const AllVisas = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {allVisas.map((visa) => (
             <div
-              key={visa.id}
+              key={visa._id}
               className="bg-neutral group rounded-lg shadow-lg p-4 hover:shadow-xl transition-all hover:scale-105 duration-300"
             >
               {/* Country Image */}
@@ -65,7 +65,7 @@ const AllVisas = () => {
 
               {/* See Details Button */}
               <button
-                onClick={() => handleSeeDetails(visa.id)}
+                onClick={() => handleSeeDetails(visa._id)}
                 className="mt-4 bg-secondary text-neutral px-4 py-2 rounded-md hover:bg-primary transition-all"
               >
                 See Details
