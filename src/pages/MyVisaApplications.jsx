@@ -4,15 +4,18 @@ import Swal from "sweetalert2";
 
 const MyVisaApplications = () => {
   const [applications, setApplications] = useState([]);
-  const { user } = useAuth(); 
+  const [nonSearchedApplicaitons, setNonSearchedApplications] = useState([]);
+  const { user } = useAuth();
 
   useEffect(() => {
     fetch(`http://localhost:5000/applications/${user?.email}`)
       .then((res) => res.json())
-      .then((data) => setApplications(data))
-    }, [user]);
+      .then((data) =>{
+        setApplications(data);
+        setNonSearchedApplications(data);
+      });
+  }, [user]);
 
-  
   const handleCancel = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -20,7 +23,7 @@ const MyVisaApplications = () => {
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#E63946",
-      cancelButtonColor: "#002147", 
+      cancelButtonColor: "#002147",
       confirmButtonText: "Yes, Cancel it!",
     }).then((result) => {
       if (result.isConfirmed) {
@@ -29,23 +32,49 @@ const MyVisaApplications = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            if(data.deletedCount>0){
-                Swal.fire("Cancelled!", "Your application has been cancelled.", "success");
-                setApplications(applications.filter((app) => app._id !== id));
+            if (data.deletedCount > 0) {
+              Swal.fire(
+                "Cancelled!",
+                "Your application has been cancelled.",
+                "success"
+              );
+              setApplications(applications.filter((app) => app._id !== id));
             }
           })
           .catch((err) => console.error(err));
       }
     });
   };
-
+  const handleSearch=(e)=>{
+    e.preventDefault();
+    const search = e.target.search.value;
+    const searchedvisa = nonSearchedApplicaitons.filter(visa=>visa.countryName==search);
+    setApplications(searchedvisa);
+  }
   return (
     <section className="min-h-screen py-10 bg-accent">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center text-primary mb-8">
           My Visa Applications
         </h2>
-
+        <div className="flex items-center justify-center mb-4">
+          <form onSubmit={handleSearch}>
+          <div className="join">
+            <div>
+              <div>
+                <input
+                  className="input input-bordered join-item"
+                  placeholder="Search"
+                  name="search"
+                />
+              </div>
+            </div>
+            <div >
+              <button type="submit" className="btn join-item bg-primary hover:bg-primary/90 text-neutral">Search</button>
+            </div>
+          </div>
+          </form>
+        </div>
         {applications.length === 0 ? (
           <p className="text-center text-textPrimary">
             You haven&apos;t applied for any visas yet.
@@ -85,7 +114,8 @@ const MyVisaApplications = () => {
                     <strong>Applied Date:</strong> {app.appliedDate}
                   </p>
                   <p>
-                    <strong>Applicant Name:</strong> {app.firstName} {app.lastName}
+                    <strong>Applicant Name:</strong> {app.firstName}{" "}
+                    {app.lastName}
                   </p>
                   <p>
                     <strong>Email:</strong> {app.applicantsEmail}
