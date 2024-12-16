@@ -15,6 +15,7 @@ import { ToastContainer} from 'react-toastify';
 import AllVisas from "./pages/AllVisas.jsx";
 import VisaDetails from "./pages/VisaDetails.jsx";
 import MyAddedVisas from "./pages/MyAddedVisas.jsx";
+import MyVisaApplications from "./pages/MyVisaApplications.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/my-added-visas",
         element: <MyAddedVisas/>,
+      },
+      {
+        path: "/my-applications",
+        element: <MyVisaApplications/>,
       },
       {
         path: "/visa-details/:id",
