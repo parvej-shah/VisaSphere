@@ -52,8 +52,8 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 py-20">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center bg-accent py-20">
+      <div className="bg-neutral p-8 rounded-lg shadow-lg w-full max-w-md">
         <Fade direction="down" triggerOnce>
           <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
         </Fade>
@@ -110,15 +110,15 @@ const LoginForm = () => {
         {/* Google Login Button */}
         <button
           onClick={handleGoogleLogin}
-          className="btn btn-outline w-full flex items-center gap-2 justify-center shadow-lg hover:shadow-xl">
+          className="btn btn-outline text-textPrimary w-full flex items-center gap-2 justify-center shadow-lg hover:shadow-xl">
           <FcGoogle className="text-3xl" />
           Sign in with Google
         </button>
 
         {/* Link to Register */}
-        <p className="text-center mt-4 text-gray-600">
+        <p className="text-center mt-4 text-textPrimary">
           Don&apos;t have an account?
-          <Link to={"/register"} className="text-blue-500 hover:underline ml-1">
+          <Link to={"/registration"} className="text-blue-500 hover:underline ml-1">
             Register here
           </Link>
         </p>

@@ -5,6 +5,7 @@ const AuthContext = createContext();
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({children}) =>{
   const [user,setUser] = useState(null);
+  const [loading, setLoading ] = useState(true);
 const createUser = (email,password)=>{
     return createUserWithEmailAndPassword(auth,email,password);
 }
@@ -15,9 +16,11 @@ useEffect(()=>{
   const authState = onAuthStateChanged(auth, (newUser) => {
     if (newUser) {
       setUser(newUser);
+      setLoading(false);
     } else {
       // User is signed out
       setUser(null);
+      setLoading(false);
     }
   });
   return ()=> authState();
@@ -25,7 +28,8 @@ useEffect(()=>{
   const authInfo = {
     createUser,
     loginUser,
-    user
+    user,
+    loading
   }
   return (
    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

@@ -2,9 +2,11 @@ import { signOut } from "firebase/auth";
 import { NavLink, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase.init";
 import { toast } from "react-toastify";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAuth } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const {user} = useAuth();
   const isloggedIn = false;
   const allNavLink = [
     { to: "/", label: "Home" },
@@ -18,6 +20,7 @@ const Navbar = () => {
     signOut(auth)
       .then(() => {
         toast.success("User Logged Out!");
+        navigate('/');
       })
       .catch(() => {
         toast.error("SignOut Failed!");
@@ -103,7 +106,7 @@ const Navbar = () => {
 
       {/* Navbar End */}
       <div className="navbar-end px-4 lg:px-8">
-        {isloggedIn ? (
+        {user?.email ? (
           <div className="flex items-center gap-4">
             <div className="dropdown dropdown-end">
               <div
