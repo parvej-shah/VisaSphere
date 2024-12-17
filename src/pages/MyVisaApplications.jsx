@@ -48,7 +48,7 @@ const MyVisaApplications = () => {
   const handleSearch=(e)=>{
     e.preventDefault();
     const search = e.target.search.value;
-    const searchedvisa = nonSearchedApplicaitons.filter(visa=>visa.countryName==search);
+    const searchedvisa = nonSearchedApplicaitons.filter(visa=>visa.countryName==search.toUpperCase());
     setApplications(searchedvisa);
   }
   return (

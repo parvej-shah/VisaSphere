@@ -7,6 +7,7 @@ import { useAuth } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
   const { user } = useAuth();
+  const firstLetter = user?.email.charAt(0).toUpperCase();
   const allNavLink = [
     { to: "/", label: "Home" },
     { to: "/all-visas", label: "All Visas" },
@@ -110,7 +111,7 @@ const Navbar = () => {
                 className="avatar btn btn-ghost text-white cursor-pointer"
               >
                 <div className="w-8 rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2">
-                  <img src={user?.photoURL} alt="User" />
+                  {user?.photoURL?<img src={user?.photoURL} alt="User" />:firstLetter}
                 </div>
               </div>
               <ul
