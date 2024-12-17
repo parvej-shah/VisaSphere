@@ -124,7 +124,7 @@ const MyVisaApplications = () => {
                   <div className="mt-4">
                     <button
                       onClick={() => handleCancel(app._id)}
-                      className="bg-secondary text-neutral px-4 py-2 rounded hover:bg-red-600 transition duration-300"
+                      className="bg-secondary text-white px-4 py-2 rounded hover:bg-red-600 transition duration-300"
                     >
                       Cancel
                     </button>

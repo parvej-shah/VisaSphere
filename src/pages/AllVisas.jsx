@@ -35,7 +35,7 @@ const handleFiltering = (filterBy)=>{
           All Visas
         </h2>
         <div className="flex items-center justify-center mb-2">
-        <div className="dropdown w-[30%]">
+        <div className="dropdown w-[50%] md:w-[30%]">
           <div tabIndex={0} role="button" className="btn bg-secondary border-none text-white hover:bg-red-600  m-1 w-full">
             Filter By 
           </div>
