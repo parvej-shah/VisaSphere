@@ -36,27 +36,27 @@ const handleFiltering = (filterBy)=>{
         </h2>
         <div className="flex items-center justify-center mb-2">
         <div className="dropdown w-[30%]">
-          <div tabIndex={0} role="button" className="btn bg-secondary border-none text-neutral hover:bg-red-600  m-1 w-full">
+          <div tabIndex={0} role="button" className="btn bg-secondary border-none text-white hover:bg-red-600  m-1 w-full">
             Filter By 
           </div>
           <ul
             tabIndex={0}
-            className="dropdown-content menu bg-primary/30 rounded-box z-[10] w-full p-3 space-y-2 shadow"
+            className="dropdown-content menu bg-accent rounded-box z-[10] w-full p-3 space-y-2 shadow"
           >
             <li>
-              <button onClick={()=>handleFiltering('all-visas')} className="btn bg-primary hover:bg-primary/80 text-neutral border-none">All Visa</button>
+              <button onClick={()=>handleFiltering('all-visas')} className="btn btn-sm  bg-primary hover:bg-primary/80 text-white border-none">All Visa</button>
             </li>
             <li>
-              <button onClick={()=>handleFiltering('Tourist visa')} className="btn bg-primary hover:bg-primary/80 text-neutral border-none">Tourist Visa</button>
+              <button onClick={()=>handleFiltering('Tourist visa')} className="btn btn-sm bg-primary hover:bg-primary/80 text-white border-none">Tourist Visa</button>
             </li>
             <li>
-              <button onClick={()=>handleFiltering('Business visa')} className="btn bg-primary hover:bg-primary/80 text-neutral border-none">Business Visa</button>
+              <button onClick={()=>handleFiltering('Business visa')} className="btn btn-sm bg-primary hover:bg-primary/80 text-white border-none">Business Visa</button>
             </li>
             <li>
-              <button onClick={()=>handleFiltering('Family visa')} className="btn bg-primary hover:bg-primary/80 text-neutral border-none">Family Visa</button>
+              <button onClick={()=>handleFiltering('Family visa')} className="btn btn-sm bg-primary hover:bg-primary/80 text-white border-none">Family Visa</button>
             </li>
             <li>
-              <button onClick={()=>handleFiltering('Student visa')} className="btn bg-primary hover:bg-primary/80 text-neutral border-none">Student Visa</button>
+              <button onClick={()=>handleFiltering('Student visa')} className="btn btn-sm bg-primary hover:bg-primary/80 text-white border-none">Student Visa</button>
             </li>
           </ul>
         </div>
@@ -69,7 +69,7 @@ const handleFiltering = (filterBy)=>{
         
         
         {/* Cards Container */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {allVisas.map((visa) => (
             <div
               key={visa._id}
