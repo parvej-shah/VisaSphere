@@ -58,7 +58,7 @@ const ChooseCountry = () => {
           {countries.map((country, index) => (
             <div
               key={index}
-              className="bg-white group shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+              className="bg-accent group shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300"
             >
               {/* Country Image */}
               <div className="relative group">
