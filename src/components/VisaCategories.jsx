@@ -11,21 +11,21 @@ const VisaCategories = () => {
       description:
         "Pursue your education in top universities worldwide. Discover study visas.",
       image: studentVisa, 
-      link: "/study-visa",
+      link: "/all-visas",
     },
     {
       title: "Family Visa",
       description:
         "Plan your vacations and travel the world. Check Family visa options.",
       image: faimlyVisa, 
-      link: "/tourist-visa",
+      link: "/all-visas",
     },
     {
       title: "Business Visa",
       description:
         "Grow your business globally with the right visa for entrepreneurs.",
       image: businessVisa, 
-      link: "/business-visa",
+      link: "/all-visas",
     },
   ];
 

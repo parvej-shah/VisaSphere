@@ -90,12 +90,11 @@ const AboutVisaAgency = () => {
           </div>
 
           {/* Call to Action */}
-          <a
-            href="#"
+          <button
             className="btn bg-secondary hover:bg-primary mt-8 text-white font-semibold px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300"
           >
             Discover More
-          </a>
+          </button>
         </div>
       </div>
     </section>
