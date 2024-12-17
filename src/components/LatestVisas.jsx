@@ -68,7 +68,7 @@ const LatestVisas = () => {
   const navigate = useNavigate();
   const [latestVisas,setLatestVisas] = useState([]);
   useEffect(()=>{
-    fetch('http://localhost:5000/visas')
+    fetch('https://visasphere-server.vercel.app/visas')
     .then(res=>res.json())
     .then(data=>setLatestVisas(data))
   },[])

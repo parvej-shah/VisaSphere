@@ -6,11 +6,9 @@ import Swal from "sweetalert2";
 const VisaDetails = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
-
   const { user } = useAuth();
   const currentDate = new Date().toISOString().split("T")[0];
   const visa = useLoaderData();
-  console.log(visa)
   const handleApply = (e) => {
     e.preventDefault();
     const applicationData = {
@@ -28,7 +26,7 @@ const VisaDetails = () => {
       applicantsEmail: user?.email,
     };
     // Submit application data to the backend
-    fetch("http://localhost:5000/applications", {
+    fetch("https://visasphere-server.vercel.app/applications", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(applicationData),

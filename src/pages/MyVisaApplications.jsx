@@ -8,7 +8,7 @@ const MyVisaApplications = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/applications/${user?.email}`)
+    fetch(`https://visasphere-server.vercel.app/applications/${user?.email}`)
       .then((res) => res.json())
       .then((data) =>{
         setApplications(data);
@@ -27,7 +27,7 @@ const MyVisaApplications = () => {
       confirmButtonText: "Yes, Cancel it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/applications/${id}`, {
+        fetch(`https://visasphere-server.vercel.app/applications/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -41,7 +41,6 @@ const MyVisaApplications = () => {
               setApplications(applications.filter((app) => app._id !== id));
             }
           })
-          .catch((err) => console.error(err));
       }
     });
   };
@@ -60,11 +59,11 @@ const MyVisaApplications = () => {
         <div className="flex items-center justify-center mb-4">
           <form onSubmit={handleSearch}>
           <div className="join">
-            <div>
+            <div className="w-full">
               <div>
                 <input
-                  className="input input-bordered join-item"
-                  placeholder="Search"
+                  className="input input-bordered join-item w-full"
+                  placeholder="Search by country"
                   name="search"
                 />
               </div>

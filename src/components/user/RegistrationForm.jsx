@@ -18,7 +18,6 @@ const RegistrationForm = () => {
 
   const onSubmit = async (data) => {
     const { name, email, photoURL, password } = data;
-    console.log({data});
     createUser(email,password)
     .then((userCredential) => {
       // Signed up 
@@ -26,13 +25,11 @@ const RegistrationForm = () => {
       const lastSignInTime = user.metadata.lastSignInTime;
       const newUser = {name,email,lastSignInTime};
       toast.success("Registration Successful!");
-      console.log(userCredential);
       updateProfile(auth.currentUser, {
         displayName: name, photoURL: photoURL
       }).then(() => {
         // Profile updated!
-        //console.log(newUser);
-        fetch('http://localhost:5000/users',{
+        fetch('https://visasphere-server.vercel.app/users',{
           method:"POST",
           headers:{
             'Content-Type': 'application/json',
@@ -41,7 +38,6 @@ const RegistrationForm = () => {
         })
         .then(res=>res.json())
         .then(()=>{
-          //console.log(data);
         })
       }).catch((error) => {
         toast.error("Profile Update Failed: " + error.message);

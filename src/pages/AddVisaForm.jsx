@@ -8,10 +8,8 @@ const AddVisaForm = () => {
   const {user} = useAuth();
   const onSubmit = async (data) => {
     // Simulating API call to store data
-    console.log("Visa Data Submitted:", data);
-    console.log('user',user);
-    const newVisa = {...data,addedBy:user.email};
-    fetch('http://localhost:5000/visas/addvisa',{
+    const newVisa = {...data,addedBy:user?.email};
+    fetch('https://visasphere-server.vercel.app/visas/addvisa',{
       method:"POST",
       headers:{
         'Content-Type': 'application/json',
@@ -20,7 +18,6 @@ const AddVisaForm = () => {
     })
     .then(res=>res.json())
     .then((datas)=>{
-      console.log(datas);
       if(datas.acknowledged){
         Swal.fire({
           title: "Success!",

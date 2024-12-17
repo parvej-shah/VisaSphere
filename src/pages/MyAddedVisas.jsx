@@ -11,7 +11,7 @@ const MyAddedVisas = () => {
   const { user } = useAuth();
   const { register, handleSubmit, reset } = useForm();
   useEffect(() => {
-    fetch(`http://localhost:5000/visas/${user?.email}`)
+    fetch(`https://visasphere-server.vercel.app/visas/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setVisas(data))
   }, [user]);
@@ -28,7 +28,7 @@ const MyAddedVisas = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/visas/${id}`, {
+        fetch(`https://visasphere-server.vercel.app/visas/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -67,7 +67,7 @@ const MyAddedVisas = () => {
       confirmButtonText: "Yes, update it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/visas/${selectedVisa._id}`, {
+        fetch(`https://visasphere-server.vercel.app/visas/${selectedVisa._id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(updatedData),

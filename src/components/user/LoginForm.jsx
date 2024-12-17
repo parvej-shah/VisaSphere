@@ -25,8 +25,6 @@ const LoginForm = () => {
 
   const onSubmit = async (data) => {
     const { email, password } = data;
-    console.log(data);
-
     loginUser(email,password)
     // eslint-disable-next-line no-unused-vars
     .then((userCredential) => {

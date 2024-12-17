@@ -7,7 +7,7 @@ const AllVisas = () => {
   const [allVisas, setAllVisas] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/all-visas")
+    fetch("https://visasphere-server.vercel.app/all-visas")
       .then((res) => res.json())
       .then((data) => {
         setAllVisas(data);
