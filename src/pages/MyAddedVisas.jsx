@@ -3,17 +3,22 @@ import { useAuth } from "../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import Modal from "react-modal";
-
+import LoadingClip from "../components/LoadingClip";
 const MyAddedVisas = () => {
   const [visas, setVisas] = useState([]); 
   const [selectedVisa, setSelectedVisa] = useState(null); 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { user } = useAuth();
   const { register, handleSubmit, reset } = useForm();
+  const [isLoading, setLoading] = useState(true);
   useEffect(() => {
+    setLoading(true);
     fetch(`https://visasphere-server.vercel.app/visas/${user?.email}`)
       .then((res) => res.json())
-      .then((data) => setVisas(data))
+      .then((data) => {
+        setVisas(data);
+        setLoading(false);
+      })
   }, [user]);
 
   // Handle Delete Action
@@ -89,22 +94,20 @@ const MyAddedVisas = () => {
       }
     });
   };
-
   return (
-    <section className="min-h-screen py-10 bg-accent">
+    <section className="min-h-screen py-10 bg-neutral">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center text-textPrimary mb-8">
           My Added Visas
         </h2>
-
-        {visas.length === 0 ? (
+        {isLoading?<LoadingClip/>:visas.length === 0 ? (
           <p className="text-center">No visas added yet.</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {visas.map((visa) => (
               <div
                 key={visa._id}
-                className="bg-neutral text-textPrimary rounded-lg shadow-md overflow-hidden"
+                className="bg-accent text-textPrimary rounded-lg shadow-md overflow-hidden"
               >
                 <img
                   src={visa.countryImage}

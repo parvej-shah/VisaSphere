@@ -67,7 +67,7 @@ const ChooseCountry = () => {
                   alt={country.country_name}
                   className="w-full h-48 object-cover"
                 />
-                <div className="absolute -bottom-8 -right-8 w-28 flex justify-center items-center h-28 bg-white border border-white rounded-full group-hover:scale-110 group-hover:bg-white/60  transition-all duration-300">
+                <div className="absolute -bottom-8 -right-8 w-28 flex justify-center items-center h-28 bg-accent border border-accent rounded-full group-hover:scale-110 group-hover:bg-accent/60  transition-all duration-300">
                 <img
                   src={country.flag}
                   alt={`${country.country_name} flag`}

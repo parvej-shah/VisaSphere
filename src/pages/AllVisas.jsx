@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import LoadingClip from "../components/LoadingClip";
 const AllVisas = () => {
   const navigate = useNavigate();
   const [nonFilteredVisas, setNonFilteredVisas] = useState([]);
   const [allVisas, setAllVisas] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetch("https://visasphere-server.vercel.app/all-visas")
       .then((res) => res.json())
       .then((data) => {
         setAllVisas(data);
         setNonFilteredVisas(data);
+        setLoading(false);
       });
   }, []);
 
@@ -61,15 +64,12 @@ const handleFiltering = (filterBy)=>{
           </ul>
         </div>
         </div>
-        {allVisas.length === 0 && (
-          <p className="text-xl text-secondary text-center mb-2">
-            No Visa Found
-          </p>
-        )}
-        
-        
-        {/* Cards Container */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+          isLoading?<LoadingClip/>:(allVisas.length === 0 ?(
+            <p className="text-xl text-secondary text-center mb-2">
+              No Visa Found
+            </p>
+          ):(<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {allVisas.map((visa) => (
             <div
               key={visa._id}
@@ -81,7 +81,7 @@ const handleFiltering = (filterBy)=>{
                 alt={visa.countryName}
                 className="w-full h-40 object-cover rounded-md group-hover:scale-105 duration-300 transition-all"
               />
-
+  
               {/* Visa Information */}
               <h3 className="text-lg font-bold text-textPrimary mt-4">
                 {visa.countryName}
@@ -107,7 +107,7 @@ const handleFiltering = (filterBy)=>{
                   {visa.applicationMethod}
                 </span>
               </p>
-
+  
               <button
                 onClick={() => handleSeeDetails(visa._id)}
                 className="mt-4 bg-secondary text-neutral text-semibold px-4 py-2 rounded-md hover:bg-primary transition-all"
@@ -116,7 +116,8 @@ const handleFiltering = (filterBy)=>{
               </button>
             </div>
           ))}
-        </div>
+        </div>))
+        }
       </div>
     </section>
   );

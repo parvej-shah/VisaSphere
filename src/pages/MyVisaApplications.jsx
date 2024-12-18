@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
-
+import LoadingClip from "../components/LoadingClip";
 const MyVisaApplications = () => {
   const [applications, setApplications] = useState([]);
   const [nonSearchedApplicaitons, setNonSearchedApplications] = useState([]);
   const { user } = useAuth();
-
+  const [isLoading, setLoading] = useState(true);
   useEffect(() => {
+    setLoading(true);
     fetch(`https://visasphere-server.vercel.app/applications/${user?.email}`)
       .then((res) => res.json())
       .then((data) =>{
         setApplications(data);
         setNonSearchedApplications(data);
+        setLoading(false);
       });
   }, [user]);
 
@@ -51,7 +53,7 @@ const MyVisaApplications = () => {
     setApplications(searchedvisa);
   }
   return (
-    <section className="min-h-screen py-10 bg-accent">
+    <section className="min-h-screen py-10 bg-neutral">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center text-textPrimary mb-8">
           My Visa Applications
@@ -74,7 +76,7 @@ const MyVisaApplications = () => {
           </div>
           </form>
         </div>
-        {applications.length === 0 ? (
+        {isLoading?<LoadingClip/>:applications.length === 0 ? (
           <p className="text-center text-textPrimary">
             You haven&apos;t applied for any visas yet.
           </p>
@@ -83,7 +85,7 @@ const MyVisaApplications = () => {
             {applications.map((app) => (
               <div
                 key={app._id}
-                className="bg-neutral shadow-lg rounded-lg overflow-hidden"
+                className="bg-accent shadow-lg rounded-lg overflow-hidden"
               >
                 {/* Visa Image */}
                 <img
