@@ -8,6 +8,7 @@ import { useAuth } from "../AuthProvider/AuthProvider";
 const Navbar = () => {
   const { user } = useAuth();
   const firstLetter = user?.email.charAt(0).toUpperCase();
+  const [theme, setTheme] = useState(true);
   const allNavLink = [
     { to: "/", label: "Home" },
     { to: "/all-visas", label: "All Visas" },
@@ -26,7 +27,6 @@ const Navbar = () => {
         toast.error("SignOut Failed!");
       });
   };
-  const [theme, setTheme] = useState(true);
   const handleThemeToggle = () => {
     setTheme(!theme);
     if (theme) {
@@ -162,22 +162,15 @@ const Navbar = () => {
           <div className="flex flex-col sm:flex-row gap-2">
             <button
               onClick={() => navigate("/login")}
-              className="btn bg-secondary btn-sm text-white border-none"
+              className="btn bg-secondary btn-sm hover:bg-secondary/90 hover:shadow-xl text-white border-none"
             >
               Login
-            </button>
-            <button
-              onClick={() => navigate("/registration")}
-              className="btn bg-info text-neutral border-none btn-sm"
-            >
-              Register
             </button>
           </div>
         )}
       </div>
     </div>
     </div>
-    
   );
 };
 
