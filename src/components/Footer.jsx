@@ -6,21 +6,21 @@ const Footer = () => {
       <div className="container mx-auto py-12 px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* About Section */}
         <div>
-          <h2 className="text-2xl font-semibold mb-4">VisaSphere</h2>
+          <h2 className="text-3xl font-semibold mb-4">VisaSphere</h2>
           <p className="mb-4 text-sm">
             Your one-stop solution for immigration and visa consulting services. Helping you achieve your dreams to explore, study, and work abroad.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="p-3 bg-secondary rounded-full text-white">
+            <a href="#" className="p-3 bg-secondary hover:bg-primary hover:text-gray-50 transition-transform duration-300 text-gray-700 rounded-full ">
               <FaFacebookF />
             </a>
-            <a href="#" className="p-3 bg-secondary rounded-full text-white">
+            <a href="#" className="p-3 bg-secondary hover:bg-primary hover:text-gray-50 transition-transform duration-300 text-gray-700 rounded-full ">
               <FaTwitter />
             </a>
-            <a href="#" className="p-3 bg-secondary rounded-full text-white">
+            <a href="#" className="p-3 bg-secondary hover:bg-primary hover:text-gray-50 transition-transform duration-300 text-gray-700 rounded-full ">
               <FaInstagram />
             </a>
-            <a href="#" className="p-3 bg-secondary rounded-full text-white">
+            <a href="#" className="p-3 bg-secondary hover:bg-primary hover:text-gray-50 transition-transform duration-300 text-gray-700 rounded-full ">
               <FaLinkedinIn />
             </a>
           </div>
@@ -31,23 +31,23 @@ const Footer = () => {
           <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="#" className="hover:text-secondary">
-                About Us
+              <a href="/all-visas" className="hover:text-secondary">
+                All Visa
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-secondary">
-                Services
+              <a href="/my-added-visas" className="hover:text-secondary">
+                Added Visa
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-secondary">
-                Contact
+              <a href="/my-applicaitons" className="hover:text-secondary">
+                Applications
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-secondary">
-                Blog
+              <a href="/" className="hover:text-secondary">
+                Home
               </a>
             </li>
           </ul>
