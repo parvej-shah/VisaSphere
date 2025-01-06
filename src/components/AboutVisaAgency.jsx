@@ -3,7 +3,7 @@ import Lottie from "lottie-react";
 import airplaneAnimation from "../assets/images/airplaneAnimation.json";
 const AboutVisaAgency = () => {
   return (
-    <section className="py-16 bg-background px-3 md:px-0">
+    <section className="py-10 bg-background px-3 md:px-0">
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left: Image */}
         <div className="relative">

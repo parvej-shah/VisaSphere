@@ -93,12 +93,11 @@ const VisaDetails = () => {
           {/* Apply for Visa Button */}
           <button
             onClick={() => setIsModalOpen(true)}
-            className="mt-6 bg-secondary text-white px-6 py-3 rounded-md hover:bg-primary transition-all"
+            className="mt-6 bg-secondary  text-gray-700 hover:text-gray-50 px-6 py-3 rounded-md hover:bg-primary duration-300 transition-all"
           >
             Apply for the Visa
           </button>
         </div>
-
         {/* Modal */}
         {isModalOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">

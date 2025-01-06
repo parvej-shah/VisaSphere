@@ -40,7 +40,7 @@ const ChooseCountry = () => {
   ];
 
   return (
-    <section className="py-16 bg-background px-3 md:px-0">
+    <section className="py-10 bg-background/50 px-3 md:px-0">
       <div className="container mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
