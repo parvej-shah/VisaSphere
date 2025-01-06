@@ -7,6 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useAuth } from "../../AuthProvider/AuthProvider";
 import { auth } from "../../../firebase.init";
 import { updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import loginpana from "../../assets/images/loginpana.svg";
 const RegistrationForm = () => {
   const {createUser} = useAuth();
   const {
@@ -62,8 +63,9 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-accent py-20">
-      <div className="bg-background p-8 rounded-lg shadow-lg w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center bg-accent py-10">
+      <img src={loginpana} alt="login" className="md:w-1/2"/>
+      <div className="bg-background p-8 rounded-lg md:w-1/2 shadow-lg w-full max-w-md">
         <Fade direction="down" triggerOnce>
           <h2 className="text-2xl font-bold text-center mb-6">Register</h2>
         </Fade>

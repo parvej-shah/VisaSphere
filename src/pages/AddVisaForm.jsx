@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 import { useAuth } from "../AuthProvider/AuthProvider";
-
+import bikeTraveler from "../assets/images/bikeTraveler.svg";
 const AddVisaForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const {user} = useAuth();
@@ -39,9 +39,11 @@ const AddVisaForm = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-8 bg-accent rounded-lg shadow-lg my-10">
+    <div className="my-10" style={{backgroundImage:`url(${bikeTraveler})`,backgroundSize:'contain',backgroundPosition:'bottom',backgroundRepeat:'no-repeat'}}>
       <h2 className="text-2xl font-bold text-textPrimary text-center mb-6">Add Visa</h2>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <div>
+        <div className="max-w-xl mx-auto bg-accent/50 p-8">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* Country Image */}
         <div>
           <label className="block text-textPrimary mb-2">Country Image URL</label>
@@ -175,6 +177,8 @@ const AddVisaForm = () => {
           Add Visa
         </button>
       </form>
+        </div>
+      </div>
     </div>
   );
 };

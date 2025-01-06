@@ -39,7 +39,7 @@ const AllVisas = () => {
         <h2 className="text-3xl font-semibold text-textPrimary text-center">
           All Visa
         </h2>
-          <div className="dropdown w-[50%] md:w-[30%]">
+          <div className="dropdown w-[50%] md:w-[20%]">
             <div
               tabIndex={0}
               role="button"

@@ -1,8 +1,6 @@
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-/* import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth } from "../firebaseConfig"; */
 import { Fade } from "react-awesome-reveal";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
@@ -11,7 +9,7 @@ import { useAuth } from "../../AuthProvider/AuthProvider";
 import { useState } from "react";
 import { auth } from "../../../firebase.init";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-
+import loginpana from "../../assets/images/loginpana.svg";
 const LoginForm = () => {
     const {loginUser} = useAuth();
   const {
@@ -50,8 +48,8 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-accent py-20">
-      <div className="bg-background p-8 rounded-lg shadow-lg w-full max-w-md">
+    <div className=" flex  items-center justify-center bg-background py-10">
+      <div className="bg-accent p-8 rounded-lg shadow-lg md:w-1/2 max-w-md">
         <Fade direction="down" triggerOnce>
           <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
         </Fade>
@@ -121,6 +119,7 @@ const LoginForm = () => {
           </Link>
         </p>
       </div>
+        <img src={loginpana} alt="login" className="md:w-1/2"/>
     </div>
   );
 };
