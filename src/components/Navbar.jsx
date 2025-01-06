@@ -10,11 +10,11 @@ const Navbar = () => {
   const firstLetter = user?.email.charAt(0).toUpperCase();
   const [theme, setTheme] = useState(true);
   const allNavLink = [
-    { to: "/", label: "Home" },
-    { to: "/all-visas", label: "All Visas" },
-    { to: "/add-visa", label: "Add Visa" },
-    { to: "/my-added-visas", label: "Added Visas" },
-    { to: "/my-applications", label: "Applications" },
+    { to: "/", label: "Home" ,isPrivate:false},
+    { to: "/all-visas", label: "All Visas" ,isPrivate:false},
+    { to: "/add-visa", label: "Add Visa",isPrivate:true },
+    { to: "/my-added-visas", label: "Added Visas",isPrivate:true },
+    { to: "/my-applications", label: "Applications",isPrivate:true },
   ];
   const navigate = useNavigate();
   const handleSignOut = () => {
@@ -82,11 +82,7 @@ const Navbar = () => {
         </div>
         {/* Logo */}
         <a className="text-2xl font-bold text-white">VisaSphere</a>
-      </div>
-
-      {/* Navbar Center */}
-      
-
+      </div>      
       {/* Navbar End */}
       <div className="flex justify-center item-center">
       <div className=" hidden lg:flex items-center justify-center">
@@ -96,7 +92,7 @@ const Navbar = () => {
               <NavLink
                 to={link.to}
                 className={({ isActive }) =>
-                  isActive ? isActiveLink : isNotActiveLink
+                  `${isActive ? isActiveLink : isNotActiveLink} ${link.isPrivate && !user?.email && 'hidden'}`
                 }
               >
                 {link.label}

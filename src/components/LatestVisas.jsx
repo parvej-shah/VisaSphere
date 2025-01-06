@@ -120,7 +120,7 @@ const LatestVisas = () => {
               {/* See Details Button */}
               <button
                 onClick={() => navigate(`/visa-details/${visa._id}`)}
-                className="mt-4 hover:bg-secondary hover:text-gray-700 px-4 py-2 rounded-md bg-primary text-gray-50 duration-300 transition-all"
+                className="mt-4 bg-secondary text-gray-700 px-4 py-2 rounded-md hover:bg-primary hover:text-gray-50 duration-300 transition-all"
               >
                 See Details
               </button>
@@ -132,7 +132,7 @@ const LatestVisas = () => {
         <div className="text-center mt-8">
           <button
             onClick={()=> navigate("/all-visas")}
-            className="hover:bg-primary font-medium hover:text-gray-50 text-gray-700 px-6 py-3 rounded-md duration-300 bg-secondary transition-all"
+            className="bg-primary font-medium text-gray-50 hover:text-gray-700 px-6 py-3 rounded-md duration-300 hover:bg-secondary transition-all"
           >
             See All Visas
           </button>
