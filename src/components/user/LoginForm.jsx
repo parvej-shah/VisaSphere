@@ -48,8 +48,8 @@ const LoginForm = () => {
   };
 
   return (
-    <div className=" flex  items-center justify-center bg-background py-10">
-      <div className="bg-accent p-8 rounded-lg shadow-lg md:w-1/2 max-w-md">
+    <div className=" flex flex-col-reverse md:flex-row  items-center justify-center bg-background py-10">
+      <div className="bg-accent p-8 rounded-lg md:shadow-lg md:w-1/2 max-w-md">
         <Fade direction="down" triggerOnce>
           <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
         </Fade>
