@@ -37,7 +37,7 @@ const AllVisas = () => {
         <div className="flex items-center justify-between mb-6">
         {/* Section Header */}
         <h2 className="text-3xl font-semibold text-textPrimary text-center">
-          All Visas
+          All Visa
         </h2>
           <div className="dropdown w-[50%] md:w-[30%]">
             <div
