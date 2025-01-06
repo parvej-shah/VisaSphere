@@ -96,7 +96,7 @@ const Footer = () => {
       </div>
 
       {/* Footer Bottom */}
-      <div className="bg-neutral-focus text-textPrimary py-4 text-center text-sm">
+      <div className="bg-background-focus text-textPrimary py-4 text-center text-sm">
         <p>&copy; 2024 VisaSphere. All Rights Reserved.</p>
       </div>
     </footer>

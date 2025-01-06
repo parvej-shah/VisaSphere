@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react';
+import { FaLocationArrow } from 'react-icons/fa6';
+import { FcCalendar } from 'react-icons/fc';
+import { RiHourglassFill } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
 
 /* const latestVisas = [
@@ -73,11 +76,8 @@ const LatestVisas = () => {
     .then(data=>setLatestVisas(data))
   },[])
 
-
-
-
   return (
-    <section className="bg-neutral py-10">
+    <section className="bg-background py-10">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <h2 className="text-3xl font-semibold text-textPrimary text-center mb-8">
@@ -85,45 +85,42 @@ const LatestVisas = () => {
         </h2>
 
         {/* Cards Container */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {latestVisas.map((visa) => (
             <div
               key={visa._id}
-              className="bg-accent group rounded-lg shadow-lg p-4 hover:shadow-xl transition-all hover:scale-105 duration-300"
+              className="bg-accent relative group rounded-sm shadow-lg p-4 hover:shadow-xl transition-all hover:scale-105 duration-300 overflow-hidden space-y-1"
             >
               {/* Country Image */}
               <img
                 src={visa.countryImage}
                 alt={visa.countryName}
-                className="w-full h-40 object-cover rounded-md group-hover:scale-105 duration-300 transition-all"
+                className="w-32 rounded-bl-full absolute top-0 right-0 h-32 object-cover rounded-md group-hover:scale-110 duration-300 transition-all"
               />
 
               {/* Visa Information */}
               <h3 className="text-lg font-bold text-textPrimary mt-4">
-                {visa.countryName}
+                {visa.visaType}
               </h3>
               <p className="text-sm text-textSecondary">
-                Visa Type: <span className="text-textPrimary">{visa.visaType}</span>
+                <span className="text-textPrimary">{visa.countryName} - ${visa.fee}</span>
               </p>
-              <p className="text-sm text-textSecondary">
-                Processing Time:{" "}
-                <span className="text-textPrimary">{visa.processingTime}</span>
+              <p className="text-sm text-textSecondary flex items-center gap-1">
+              <FcCalendar className='text-lg' /> <span className="text-textPrimary">{visa.validity}</span>
               </p>
-              <p className="text-sm text-textSecondary">
-                Fee: <span className="text-textPrimary">${visa.fee}</span>
+              <p className="text-lg flex items-center gap-1 text-textSecondary">
+              <RiHourglassFill />
+                <span className="text-textPrimary text-sm">{visa.processingTime}</span>
               </p>
-              <p className="text-sm text-textSecondary">
-                Validity: <span className="text-textPrimary">{visa.validity}</span>
-              </p>
-              <p className="text-sm text-textSecondary">
-                Application Method:{" "}
-                <span className="text-textPrimary">{visa.applicationMethod}</span>
+              <p className=" text-textSecondary text-lg flex items-center gap-1 ">
+              <FaLocationArrow/>
+                <span className="text-textPrimary text-sm">{visa.applicationMethod}</span>
               </p>
 
               {/* See Details Button */}
               <button
                 onClick={() => navigate(`/visa-details/${visa._id}`)}
-                className="mt-4 bg-secondary text-white px-4 py-2 rounded-md hover:bg-primary transition-all"
+                className="mt-4 hover:bg-secondary hover:text-gray-700 px-4 py-2 rounded-md bg-primary text-gray-50 duration-300 transition-all"
               >
                 See Details
               </button>
@@ -135,7 +132,7 @@ const LatestVisas = () => {
         <div className="text-center mt-8">
           <button
             onClick={()=> navigate("/all-visas")}
-            className="bg-primary text-white px-6 py-3 rounded-md hover:bg-secondary transition-all"
+            className="hover:bg-primary hover:text-gray-50 text-gray-700 px-6 py-3 rounded-md duration-300 bg-secondary transition-all"
           >
             See All Visas
           </button>

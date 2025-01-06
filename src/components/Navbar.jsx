@@ -40,7 +40,7 @@ const Navbar = () => {
   const isNotActiveLink =
     "btn bg-transparent shadow-none btn-sm border-none text-white font-normal hover:bg-transparent hover:scale-110 transition-all duration-300 hover:text-secondary hover:font-bold";
   return (
-    <div className="bg-primary/90 shadow-lg py-2">
+    <div className="bg-primary/90 shadow-lg py-2 sticky top-0 z-30 backdrop-blur-sm">
       <div className="flex container mx-auto items-center justify-between text-white shadow-navbar">
       {/* Navbar Start */}
       <div className="flex justify-center items-center">
@@ -49,7 +49,7 @@ const Navbar = () => {
           <label tabIndex={0} className="btn btn-ghost ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-white"
+              className="h-7 w-7 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -64,7 +64,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-2 shadow-lg bg-primary/90 text-textPrimary rounded-box w-52 z-10"
+            className="menu menu-sm dropdown-content mt-3 p-2 shadow-lg bg-primary/90 text-textPrimary rounded-box w-40 ml-2 z-10"
           >
             {allNavLink.map((link, index) => (
               <li key={index}>
@@ -143,7 +143,7 @@ const Navbar = () => {
         )}
       </div>
         <div className="divider lg:divider-horizontal"></div>
-        <label className="swap swap-rotate">
+        <label className="swap ml-1 lg:ml-0 swap-rotate">
           {/* this hidden checkbox controls the state */}
           <input
             onChange={handleThemeToggle}
@@ -154,7 +154,7 @@ const Navbar = () => {
 
           {/* sun icon */}
           <svg
-            className="swap-off h-6 w-6 md:h-8 md:w-8 fill-current"
+            className="swap-off h-8 w-8 fill-current"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -163,7 +163,7 @@ const Navbar = () => {
 
           {/* moon icon */}
           <svg
-            className="swap-on h-6 w-6 md:h-8 md:w-8 fill-current"
+            className="swap-on h-8 w-8 fill-current"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >

@@ -63,7 +63,7 @@ const RegistrationForm = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-accent py-20">
-      <div className="bg-neutral p-8 rounded-lg shadow-lg w-full max-w-md">
+      <div className="bg-background p-8 rounded-lg shadow-lg w-full max-w-md">
         <Fade direction="down" triggerOnce>
           <h2 className="text-2xl font-bold text-center mb-6">Register</h2>
         </Fade>

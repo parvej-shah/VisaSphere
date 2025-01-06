@@ -55,7 +55,7 @@ const VisaDetails = () => {
     <section className="bg-accent min-h-screen py-10">
       <div className="container mx-auto px-4">
         {/* Visa Details */}
-        <div className="bg-neutral rounded-lg shadow-lg p-6 mx-auto max-w-4xl">
+        <div className="bg-background rounded-lg shadow-lg p-6 mx-auto max-w-4xl">
           <img
             src={visa?.countryImage}
             alt={visa.countryName}

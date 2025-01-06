@@ -95,7 +95,7 @@ const MyAddedVisas = () => {
     });
   };
   return (
-    <section className="min-h-screen py-10 bg-neutral">
+    <section className="min-h-screen py-10 bg-background">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center text-textPrimary mb-8">
           My Added Visas
