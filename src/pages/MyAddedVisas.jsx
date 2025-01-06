@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import Modal from "react-modal";
 import LoadingClip from "../components/LoadingClip";
+import { GrUpdate } from "react-icons/gr";
+import { MdDeleteForever } from "react-icons/md";
 const MyAddedVisas = () => {
   const [visas, setVisas] = useState([]); 
   const [selectedVisa, setSelectedVisa] = useState(null); 
@@ -103,61 +105,46 @@ const MyAddedVisas = () => {
         {isLoading?<LoadingClip/>:visas.length === 0 ? (
           <p className="text-center">No visas added yet.</p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {visas.map((visa) => (
-              <div
-                key={visa._id}
-                className="bg-accent text-textPrimary rounded-lg shadow-md overflow-hidden"
-              >
-                <img
-                  src={visa.countryImage}
-                  alt={visa.countryName}
-                  className="w-full h-40 object-cover"
-                />
-                <div className="p-4">
-                  <h3 className="text-xl font-bold mb-2">
-                    {visa.countryName} - {visa.visaType}
-                  </h3>
-                  <p>
-                    <strong>Processing Time:</strong> {visa.processingTime}
-                  </p>
-                  <p>
-                    <strong>Fee:</strong> ${visa.fee}
-                  </p>
-                  <p>
-                    <strong>Validity:</strong> {visa.validity}
-                  </p>
-                  <p>
-                    <strong>Method:</strong> {visa.applicationMethod}
-                  </p>
-
-                  <div className="mt-4 flex justify-between">
-                    <button
-                      onClick={() => openModal(visa)}
-                      className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                    >
-                      Update
-                    </button>
-                    <button
-                      onClick={() => handleDelete(visa._id)}
-                      className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </div>
-              </div>
+          <div className="overflow-x-auto">
+          <table className="table table-zebra bg-accent">
+          {/* head */}
+          <thead>
+            <tr>
+              <th></th>
+              <th>Country</th>
+              <th>Type</th>
+              <th>Fee</th>
+              <th>Validity</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* row 1 */}
+            {visas.map((visa,idx) => (
+               <tr key={visa._id}>
+               <th>{1+idx}</th>
+               <td className="flex items-center gap-4"><img src={visa.countryImage} alt="" className="w-20 h-20 rounded-lg rounded-br-full"/>{visa.countryName}</td>
+               <td>{visa.visaType}</td>
+               <td>${visa.fee}</td>
+               <td>{visa.validity}</td>
+               <td className="space-x-2 ">
+               <button onClick={()=>openModal(visa)} className="btn btn-sm btn-warning"><GrUpdate className="text-2xl "/> </button>
+               <button onClick={()=>handleDelete(visa._id)} className="btn btn-sm btn-error"><MdDeleteForever className="text-2xl " /> </button>
+               </td>
+             </tr>
             ))}
-          </div>
+           
+          </tbody>
+        </table>
+        </div>
         )}
-
         {/* React Modal for Update */}
         <Modal
           isOpen={isModalOpen}
           onRequestClose={closeModal}
           ariaHideApp={false}
           contentLabel="Update Visa Details"
-          className="bg-accent p-3 rounded-lg shadow-lg w-full max-w-4xl mx-auto outline-none"
+          className="bg-accent z-50 p-3 rounded-lg shadow-lg w-full max-w-4xl mx-auto outline-none"
           overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
         >
           <h3 className="text-2xl font-bold mb-2 text-textPrimary">

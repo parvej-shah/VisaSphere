@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import LoadingClip from "../components/LoadingClip";
+import { TbCancel } from "react-icons/tb";
 const MyVisaApplications = () => {
   const [applications, setApplications] = useState([]);
   const [nonSearchedApplicaitons, setNonSearchedApplications] = useState([]);
@@ -55,10 +56,10 @@ const MyVisaApplications = () => {
   return (
     <section className="min-h-screen py-10 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-textPrimary mb-8">
+        <div className="flex items-center justify-between mb-8">
+        <h2 className="text-3xl font-bold text-center text-textPrimary">
           My Visa Applications
         </h2>
-        <div className="flex items-center justify-center mb-4">
           <form onSubmit={handleSearch}>
           <div className="join">
             <div className="w-full">
@@ -81,60 +82,37 @@ const MyVisaApplications = () => {
             You haven&apos;t applied for any visas yet.
           </p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {applications.map((app) => (
-              <div
-                key={app._id}
-                className="bg-accent shadow-lg rounded-lg overflow-hidden"
-              >
-                {/* Visa Image */}
-                <img
-                  src={app.countryImage}
-                  alt={app.country}
-                  className="w-full h-40 object-cover"
-                />
-
-                {/* Visa Details */}
-                <div className="p-4 text-textPrimary">
-                  <h3 className="text-xl font-semibold mb-2">
-                    {app.countryName} - {app.visaType}
-                  </h3>
-                  <p>
-                    <strong>Processing Time:</strong> {app.processingTime}
-                  </p>
-                  <p>
-                    <strong>Fee:</strong> ${app.fee}
-                  </p>
-                  <p>
-                    <strong>Validity:</strong> {app.validity}
-                  </p>
-                  <p>
-                    <strong>Application Method:</strong> {app.applicationMethod}
-                  </p>
-                  <p>
-                    <strong>Applied Date:</strong> {app.appliedDate}
-                  </p>
-                  <p>
-                    <strong>Applicant Name:</strong> {app.firstName}{" "}
-                    {app.lastName}
-                  </p>
-                  <p>
-                    <strong>Email:</strong> {app.applicantsEmail}
-                  </p>
-
-                  {/* Cancel Button */}
-                  <div className="mt-4">
-                    <button
-                      onClick={() => handleCancel(app._id)}
-                      className="bg-secondary text-white px-4 py-2 rounded hover:bg-red-600 transition duration-300"
-                    >
-                      Cancel
-                    </button>
+          <div className="overflow-x-auto">
+                    <table className="table table-zebra bg-accent">
+                    {/* head */}
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Country</th>
+                        <th>Type</th>
+                        <th>Fee</th>
+                        <th>Validity</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {/* row 1 */}
+                      {applications?.map((visa,idx) => (
+                         <tr key={visa._id}>
+                         <th>{1+idx}</th>
+                         <td className="flex items-center gap-4"><img src={visa.countryImage} alt="" className="w-20 h-20 rounded-lg rounded-br-full"/>{visa.countryName}</td>
+                         <td>{visa.visaType}</td>
+                         <td>${visa.fee}</td>
+                         <td>{visa.validity}</td>
+                         <td className="">
+                         <button onClick={()=>handleCancel(visa._id)} className="btn btn-sm btn-error"><TbCancel className="text-2xl " /> </button>
+                         </td>
+                       </tr>
+                      ))}
+                     
+                    </tbody>
+                  </table>
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
         )}
       </div>
     </section>

@@ -40,7 +40,7 @@ const Navbar = () => {
   const isNotActiveLink =
     "btn bg-transparent shadow-none btn-sm border-none text-white font-normal hover:bg-transparent hover:scale-110 transition-all duration-300 hover:text-secondary hover:font-bold";
   return (
-    <div className="bg-primary/90 shadow-lg py-2 sticky top-0 z-30 backdrop-blur-sm">
+    <div className="bg-primary/90 shadow-lg py-2 sticky top-0 z-40 backdrop-blur-sm">
       <div className="flex container mx-auto items-center justify-between text-white shadow-navbar">
       {/* Navbar Start */}
       <div className="flex justify-center items-center">
