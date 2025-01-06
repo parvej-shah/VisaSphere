@@ -87,7 +87,7 @@ const ChooseCountry = () => {
           ))}
         </div>
         <div className='mt-10 flex justify-center items-center'>
-        <button className="btn bg-secondary border-none text-white font-bold px-6 py-3 rounded-lg hover:bg-primary flex items-center gap-2">
+        <button className="btn hover:bg-secondary text-gray-50 hover:text-gray-700 border-none font-bold px-6 py-3 rounded-lg bg-primary flex items-center gap-2">
                   View More<AiOutlineArrowRight className="text-lg" />
                 </button>
         </div>
