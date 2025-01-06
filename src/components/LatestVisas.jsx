@@ -132,7 +132,7 @@ const LatestVisas = () => {
         <div className="text-center mt-8">
           <button
             onClick={()=> navigate("/all-visas")}
-            className="hover:bg-primary hover:text-gray-50 text-gray-700 px-6 py-3 rounded-md duration-300 bg-secondary transition-all"
+            className="hover:bg-primary font-medium hover:text-gray-50 text-gray-700 px-6 py-3 rounded-md duration-300 bg-secondary transition-all"
           >
             See All Visas
           </button>

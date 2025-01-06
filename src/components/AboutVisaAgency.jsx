@@ -63,25 +63,25 @@ const AboutVisaAgency = () => {
             {/* Highlighted Features */}
             <ul className="space-y-4">
               <li className="flex items-center gap-4">
-                <FaCheckCircle className="text-textPrimary text-2xl" />
+                <FaCheckCircle className="text-secondary text-2xl" />
                 <span className="text-textPrimary font-medium">
                   Professional Visa Consultants
                 </span>
               </li>
               <li className="flex items-center gap-4">
-                <FaCheckCircle className="text-textPrimary text-2xl" />
+                <FaCheckCircle className="text-secondary text-2xl" />
                 <span className="text-textPrimary font-medium">
                   Hassle-Free Application Processing
                 </span>
               </li>
               <li className="flex items-center gap-4">
-                <FaCheckCircle className="text-textPrimary text-2xl" />
+                <FaCheckCircle className="text-secondary text-2xl" />
                 <span className="text-textPrimary font-medium">
                   Affordable Service Packages
                 </span>
               </li>
               <li className="flex items-center gap-4">
-                <FaCheckCircle className="text-textPrimary text-2xl" />
+                <FaCheckCircle className="text-secondary text-2xl" />
                 <span className="text-textPrimary font-medium">
                   24/7 Customer Support
                 </span>
@@ -91,7 +91,7 @@ const AboutVisaAgency = () => {
 
           {/* Call to Action */}
           <button
-            className="btn bg-secondary hover:bg-primary mt-8 text-white font-semibold px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300"
+            className="btn hover:bg-secondary bg-primary mt-8 hover:text-gray-700 font-semibold px-6 py-3 shadow-lg hover:shadow-xl text-gray-50 transition-all duration-300"
           >
             Discover More
           </button>
