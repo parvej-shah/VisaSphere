@@ -56,9 +56,9 @@ const MyVisaApplications = () => {
   return (
     <section className="min-h-screen py-10 bg-background">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col md:flex-row gap-4 items-center justify-between mb-8">
         <h2 className="text-3xl font-bold text-center text-textPrimary">
-          My Visa Applications
+          My Applications
         </h2>
           <form onSubmit={handleSearch}>
           <div className="join">
@@ -79,7 +79,7 @@ const MyVisaApplications = () => {
         </div>
         {isLoading?<LoadingClip/>:applications.length === 0 ? (
           <p className="text-center text-textPrimary">
-            You haven&apos;t applied for any visas yet.
+            You haven&apos;t applied for any visa yet.
           </p>
         ) : (
           <div className="overflow-x-auto">
